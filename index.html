@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ZAVIREM — Authentic Timepieces · Spain">
+<title>ZAVIREM | Authentic Timepieces</title>
+
+<style>
+:root{
+--black:#080808;
+--panel:#111;
+--cream:#f4f0e8;
+--gold:#c9a65f;
+--muted:#aaa;
+--line:#292929;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+background:var(--black);
+color:var(--cream);
+font-family:Arial,Helvetica,sans-serif;
+line-height:1.6;
+overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+
+header{
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(8,8,8,.94);
+backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line)
+}
+.nav{
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px
+}
+.logo{
+font-size:19px;
+letter-spacing:.34em;
+color:var(--gold)
+}
+.menu{
+display:flex;
+align-items:center;
+gap:24px
+}
+.lang{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:11px;
+letter-spacing:.15em
+}
+.lang button{
+background:none;
+border:0;
+color:var(--gold);
+cursor:pointer;
+font-size:11px;
+padding:4px
+}
+.menu-toggle{
+background:none;
+border:1px solid #444;
+color:var(--cream);
+font-size:22px;
+width:42px;
+height:38px;
+cursor:pointer
+}
+.panel{
+display:none;
+border-top:1px solid var(--line);
+background:#0b0b0b
+}
+.panel.open{display:block}
+.panel a{
+display:block;
+padding:18px 20px;
+border-bottom:1px solid var(--line);
+text-transform:uppercase;
+letter-spacing:.16em;
+font-size:11px
+}
+.panel a:hover{color:var(--gold)}
+
+.hero{
+min-height:calc(100vh - 72px);
+display:flex;
+align-items:center;
+padding:90px 0;
+background:
+radial-gradient(circle at 70% 35%,#252019 0,#12110f 20%,#080808 55%)
+}
+.hero-inner{max-width:900px}
+.eyebrow{
+color:var(--gold);
+font-size:10px;
+letter-spacing:.35em;
+text-transform:uppercase;
+margin-bottom:20px
+}
+h1,h2,h3{
+font-family:Georgia,"Times New Roman",serif;
+font-weight:400
+}
+h1{
+font-size:clamp(52px,9vw,105px);
+line-height:.95;
+margin-bottom:32px;
+max-width:900px
+}
+.gold{color:var(--gold)}
+.hero p{
+max-width:680px;
+color:#aaa;
+font-size:17px;
+margin-bottom:32px
+}
+.btn{
+display:inline-block;
+border:1px solid var(--gold);
+padding:15px 25px;
+color:var(--gold);
+font-size:10px;
+letter-spacing:.2em;
+text-transform:uppercase
+}
+.btn:hover{
+background:var(--gold);
+color:#080808
+}
+
+section{padding:110px 0;border-top:1px solid var(--line)}
+.section-title{
+font-size:54px;
+line-height:1;
+margin-bottom:16px
+}
+.section-text{
+color:#aaa;
+max-width:650px;
+margin-bottom:35px
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
+}
+.card{
+min-height:250px;
+border:1px solid #292929;
+background:linear-gradient(145deg,#141414,#0d0d0d);
+padding:28px;
+display:flex;
+flex-direction:column;
+justify-content:space-between
+}
+.number{
+color:var(--gold);
+font-size:10px;
+letter-spacing:.25em
+}
+.card h3{font-size:27px}
+.card p{font-size:12px;color:#999}
+
+.brands{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px
+}
+.brand{
+border:1px solid #292929;
+padding:28px 20px;
+text-align:center;
+color:#ddd;
+font-family:Georgia,serif;
+font-size:22px
+}
+
+.philosophy{text-align:center}
+.philosophy h2{
+font-size:clamp(40px,7vw,70px);
+margin-bottom:28px
+}
+.philosophy p{
+max-width:650px;
+margin:auto;
+color:#aaa
+}
+
+.contact{text-align:center}
+.contact h2{
+font-size:clamp(42px,7vw,70px);
+line-height:1;
+max-width:750px;
+margin:0 auto 25px
+}
+.contact p{color:#aaa;margin-bottom:25px}
+.email{
+color:var(--gold);
+font-size:15px
+}
+
+footer{
+border-top:1px solid var(--line);
+padding:28px 20px;
+color:#777;
+font-size:10px;
+letter-spacing:.15em
+}
+
+@media(max-width:700px){
+.nav{min-height:54px}
+.logo{font-size:15px}
+.menu{gap:8px}
+.hero{
+min-height:auto;
+padding:75px 0 90px
+}
+h1{
+font-size:clamp(48px,14vw,72px);
+line-height:.94
+}
+.hero p{font-size:13px}
+section{padding:75px 0}
+.section-title{font-size:42px}
+.cards{
+grid-template-columns:1fr;
+gap:14px
+}
+.card{min-height:220px}
+.brands{
+grid-template-columns:1fr 1fr
+}
+.brand{font-size:18px;padding:22px 10px}
+}
+
+@media(min-width:701px){
+.menu-toggle{display:none}
+.panel{
+display:flex;
+border:0;
+background:none;
+position:absolute;
+right:20px;
+top:72px;
+width:300px;
+box-shadow:0 20px 50px #000
+}
+.panel:not(.open){display:none}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="wrap nav">
+
+<div class="lang">
+<button onclick="setLanguage('es')">ES</button>
+<span>|</span>
+<button onclick="setLanguage('en')">EN</button>
+</div>
+
+<a href="#home" class="logo">ZAVIREM</a>
+
+<div class="menu">
+<button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+</div>
+
+</div>
+
+<nav id="panel" class="panel">
+
+<a href="#collection" data-key="navCollection">Colección</a>
+<a href="#brands" data-key="navBrands">Marcas</a>
+<a href="#available" data-key="navAvailable">Relojes disponibles</a>
+<a href="#about" data-key="navAbout">Sobre ZAVIREM</a>
+<a href="#contact" data-key="navContact">Contacto</a>
+
+</nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+<div class="wrap hero-inner">
+
+<div class="eyebrow" data-key="eyebrow">
+AUTHENTIC TIMEPIECES · SPAIN
+</div>
+
+<h1>
+<span data-key="hero1">Un nuevo destino para</span>
+<span class="gold" data-key="hero2"> relojes excepcionales.</span>
+</h1>
+
+<p data-key="heroText">
+ZAVIREM es un destino para relojes nuevos y de segunda mano auténticos,
+cuidadosamente seleccionados para quienes aprecian la precisión,
+la historia y el diseño atemporal.
+</p>
+
+<a href="#contact" class="btn" data-key="heroButton">
+CONSULTAR UN RELOJ
+</a>
+
+</div>
+</section>
+
+<section id="collection">
+<div class="wrap">
+
+<div class="eyebrow">ZAVIREM</div>
+
+<h2 class="section-title" data-key="collectionTitle">
+La colección
+</h2>
+
+<p class="section-text" data-key="collectionText">
+Cuidadosamente seleccionados. Autenticados. Disponibles bajo consulta.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="number">01</div>
+<div>
+<h3 data-key="newTitle">Relojes nuevos</h3>
+<p data-key="newText">
+Descubrí relojes nuevos seleccionados de prestigiosas casas relojeras.
+</p>
+</div>
+</div>
+
+<div class="card">
+<div class="number">02</div>
+<div>
+<h3 data-key="usedTitle">Relojes de segunda mano</h3>
+<p data-key="usedText">
+Piezas de segunda mano cuidadosamente seleccionadas,
+con autenticidad y estado como prioridad.
+</p>
+</div>
+</div>
+
+<div class="card">
+<div class="number">03</div>
+<div>
+<h3 data-key="requestTitle">Bajo consulta</h3>
+<p data-key="requestText">
+¿Buscás una referencia concreta? Contanos qué modelo estás buscando
+y nos encargamos de localizarlo para vos.
+</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="brands">
+<div class="wrap">
+
+<div class="eyebrow" data-key="brandsEyebrow">MARCAS</div>
+
+<h2 class="section-title" data-key="brandsTitle">
+Marcas
+</h2>
+
+<p class="section-text" data-key="brandsText">
+Trabajamos con referencias seleccionadas de las principales casas relojeras.
+</p>
+
+<div class="brands">
+<div class="brand">Rolex</div>
+<div class="brand">Omega</div>
+<div class="brand">Cartier</div>
+<div class="brand">Tudor</div>
+<div class="brand">Patek Philippe</div>
+<div class="brand">Audemars Piguet</div>
+<div class="brand">Breitling</div>
+<div class="brand">TAG Heuer</div>
+</div>
+
+</div>
+</section>
+
+<section id="available">
+<div class="wrap">
+
+<div class="eyebrow" data-key="availableEyebrow">
+DISPONIBILIDAD
+</div>
+
+<h2 class="section-title" data-key="availableTitle">
+Relojes disponibles
+</h2>
+
+<p class="section-text" data-key="availableText">
+Nuestro catálogo se actualiza según disponibilidad.
+Consultanos por el modelo o referencia que estés buscando.
+</p>
+
+<a href="#contact" class="btn" data-key="availableButton">
+CONSULTAR DISPONIBILIDAD
+</a>
+
+</div>
+</section>
+
+<section id="about" class="philosophy">
+<div class="wrap">
+
+<div class="eyebrow" data-key="aboutEyebrow">
+OUR PHILOSOPHY
+</div>
+
+<h2 data-key="aboutTitle">
+Menos ruido. Más tiempo.
+</h2>
+
+<p data-key="aboutText">
+ZAVIREM nació alrededor de una idea sencilla:
+los relojes excepcionales deben hablar por sí mismos.
+Nos enfocamos en autenticidad, selección cuidadosa
+y una experiencia discreta desde la consulta hasta la adquisición.
+</p>
+
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="wrap">
+
+<div class="eyebrow" data-key="contactEyebrow">
+GET IN TOUCH
+</div>
+
+<h2 data-key="contactTitle">
+¿Buscás un reloj concreto?
+</h2>
+
+<p data-key="contactText">
+Contactá con ZAVIREM y decinos qué referencia estás buscando.
+</p>
+
+<a class="btn" href="mailto:zavirem.contact@gmail.com" data-key="contactButton">
+CONTACTAR ZAVIREM
+</a>
+
+<p>
+<a class="email" href="mailto:zavirem.contact@gmail.com">
+zavirem.contact@gmail.com
+</a>
+</p>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+© 2026 ZAVIREM · AUTHENTIC TIMEPIECES · SPAIN
+</footer>
+
+<script>
+const translations={
+
+es:{
+navCollection:"Colección",
+navBrands:"Marcas",
+navAvailable:"Relojes disponibles",
+navAbout:"Sobre ZAVIREM",
+navContact:"Contacto",
+
+eyebrow:"AUTHENTIC TIMEPIECES · SPAIN",
+hero1:"Un nuevo destino para",
+hero2:" relojes excepcionales.",
+heroText:"ZAVIREM es un destino para relojes nuevos y de segunda mano auténticos, cuidadosamente seleccionados para quienes aprecian la precisión, la historia y el diseño atemporal.",
+heroButton:"CONSULTAR UN RELOJ",
+
+collectionTitle:"La colección",
+collectionText:"Cuidadosamente seleccionados. Autenticados. Disponibles bajo consulta.",
+
+newTitle:"Relojes nuevos",
+newText:"Descubrí relojes nuevos seleccionados de prestigiosas casas relojeras.",
+
+usedTitle:"Relojes de segunda mano",
+usedText:"Piezas de segunda mano cuidadosamente seleccionadas, con autenticidad y estado como prioridad.",
+
+requestTitle:"Bajo consulta",
+requestText:"¿Buscás una referencia concreta? Contanos qué modelo estás buscando y nos encargamos de localizarlo para vos.",
+
+brandsEyebrow:"MARCAS",
+brandsTitle:"Marcas",
+brandsText:"Trabajamos con referencias seleccionadas de las principales casas relojeras.",
+
+availableEyebrow:"DISPONIBILIDAD",
+availableTitle:"Relojes disponibles",
+availableText:"Nuestro catálogo se actualiza según disponibilidad. Consultanos por el modelo o referencia que estés buscando.",
+availableButton:"CONSULTAR DISPONIBILIDAD",
+
+aboutEyebrow:"NUESTRA FILOSOFÍA",
+aboutTitle:"Menos ruido. Más tiempo.",
+aboutText:"ZAVIREM nació alrededor de una idea sencilla: los relojes excepcionales deben hablar por sí mismos. Nos enfocamos en autenticidad, selección cuidadosa y una experiencia discreta desde la consulta hasta la adquisición.",
+
+contactEyebrow:"CONTACTANOS",
+contactTitle:"¿Buscás un reloj concreto?",
+contactText:"Contactá con ZAVIREM y decinos qué referencia estás buscando.",
+contactButton:"CONTACTAR ZAVIREM"
+},
+
+en:{
+navCollection:"Collection",
+navBrands:"Brands",
+navAvailable:"Available Watches",
+navAbout:"About ZAVIREM",
+navContact:"Contact",
+
+eyebrow:"AUTHENTIC TIMEPIECES · SPAIN",
+hero1:"A new destination for",
+hero2:" exceptional watches.",
+heroText:"ZAVIREM is a destination for authentic new and pre-owned timepieces, carefully selected for those who appreciate precision, heritage and timeless design.",
+heroButton:"ENQUIRE ABOUT A TIMEPIECE",
+
+collectionTitle:"The collection",
+collectionText:"Carefully selected. Authenticated. Available on request.",
+
+newTitle:"New Timepieces",
+newText:"Discover selected new watches from prestigious watchmaking houses.",
+
+usedTitle:"Pre-Owned",
+usedText:"Carefully sourced pre-owned pieces with authenticity and condition at the forefront.",
+
+requestTitle:"By Request",
+requestText:"Looking for a specific reference? Tell us what you're searching for and we'll source it for you.",
+
+brandsEyebrow:"BRANDS",
+brandsTitle:"Brands",
+brandsText:"We work with selected references from leading watchmaking houses.",
+
+availableEyebrow:"AVAILABILITY",
+availableTitle:"Available Watches",
+availableText:"Our catalogue is updated according to availability. Contact us regarding the model or reference you are looking for.",
+availableButton:"CHECK AVAILABILITY",
+
+aboutEyebrow:"OUR PHILOSOPHY",
+aboutTitle:"Less noise. More time.",
+aboutText:"ZAVIREM was created around a simple idea: exceptional watches should speak for themselves. We focus on authenticity, careful selection and a discreet experience from enquiry to acquisition.",
+
+contactEyebrow:"GET IN TOUCH",
+contactTitle:"Looking for a specific timepiece?",
+contactText:"Contact ZAVIREM and tell us the reference you're looking for.",
+contactButton:"CONTACT ZAVIREM"
+}
+
+};
+
+function setLanguage(lang){
+document.documentElement.lang=lang;
+
+document.querySelectorAll("[data-key]").forEach(el=>{
+const key=el.dataset.key;
+if(translations[lang][key]){
+el.textContent=translations[lang][key];
+}
+});
+
+closeMenu();
+}
+
+function toggleMenu(){
+document.getElementById("panel").classList.toggle("open");
+}
+
+function closeMenu(){
+document.getElementById("panel").classList.remove("open");
+}
+
+document.querySelectorAll("#panel a").forEach(link=>{
+link.addEventListener("click",closeMenu);
+});
+
+setLanguage("es");
+</script>
+
+</body>
+</html>
