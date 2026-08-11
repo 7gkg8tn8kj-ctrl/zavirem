@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAVIREM | Authentic Timepieces</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #080808;
+  color: #f4f0e8;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  padding: 28px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #292929;
+}
+
+.logo {
+  color: #d6b36a;
+  font-size: 26px;
+  letter-spacing: 8px;
+  font-weight: 500;
+}
+
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  padding: 70px 7%;
+  background:
+    radial-gradient(circle at 75% 40%, #29251b 0%, #080808 42%);
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.small {
+  color: #d6b36a;
+  letter-spacing: 5px;
+  font-size: 12px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(55px, 9vw, 110px);
+  font-weight: 400;
+  line-height: .95;
+  margin-bottom: 30px;
+}
+
+h1 span {
+  color: #d6b36a;
+}
+
+.hero p {
+  color: #aaa;
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 35px;
+}
+
+.button {
+  display: inline-block;
+  padding: 16px 28px;
+  border: 1px solid #d6b36a;
+  color: #d6b36a;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.button:hover {
+  background: #d6b36a;
+  color: #080808;
+}
+
+section {
+  padding: 90px 7%;
+}
+
+.section-title {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  color: #888;
+  margin-bottom: 50px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  min-height: 330px;
+  border: 1px solid #292929;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(145deg, #171717, #0b0b0b);
+}
+
+.card-number {
+  color: #d6b36a;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #888;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.about {
+  border-top: 1px solid #292929;
+  border-bottom: 1px solid #292929;
+  text-align: center;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 30px auto 0;
+  color: #999;
+  line-height: 1.8;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact-email {
+  display: inline-block;
+  margin-top: 25px;
+  color: #d6b36a;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+footer {
+  padding: 35px 7%;
+  border-top: 1px solid #292929;
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+  header {
+    padding: 22px 6%;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    min-height: 75vh;
+    padding: 60px 6%;
+  }
+
+  section {
+    padding: 70px 6%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 250px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">ZAVIREM</div>
+
+  <nav>
+    <a href="#collection">Collection</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="small">Authentic Timepieces · Spain</div>
+
+    <h1>
+      A new destination<br>
+      for <span>exceptional</span><br>
+      watches.
+    </h1>
+
+    <p>
+      ZAVIREM is a destination for authentic new and pre-owned
+      timepieces, carefully selected for those who appreciate
+      precision, heritage and timeless design.
+    </p>
+
+    <a class="button" href="#contact">
+      Enquire about a timepiece
+    </a>
+
+  </div>
+</section>
+
+<section id="collection">
+
+  <div class="small">ZAVIREM</div>
+
+  <h2 class="section-title">The collection</h2>
+
+  <p class="section-subtitle">
+    Carefully selected. Authenticated. Available on request.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-number">01</div>
+      <h3>New Timepieces</h3>
+      <p>
+        Discover selected new watches from prestigious
+        watchmaking houses.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-number">02</div>
+      <h3>Pre-Owned</h3>
+      <p>
+        Carefully sourced pre-owned pieces with authenticity
+        and condition at the forefront.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-number">03</div>
+      <h3>By Request</h3>
+      <p>
+        Looking for a specific reference? Tell us what you're
+        searching for and we'll source it for you.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="about" id="about">
+
+  <div class="small">Our philosophy</div>
+
+  <h2 class="section-title">Less noise. More time.</h2>
+
+  <p>
+    ZAVIREM was created around a simple idea:
+    exceptional watches should speak for themselves.
+    We focus on authenticity, careful selection and a
+    discreet experience from enquiry to acquisition.
+  </p>
+
+</section>
+
+<section class="contact" id="contact">
+
+  <div class="small">Get in touch</div>
+
+  <h2 class="section-title">Looking for a specific timepiece?</h2>
+
+  <p class="section-subtitle">
+    Contact ZAVIREM and tell us the reference you're looking for.
+  </p>
+
+  <a class="button" href="mailto:zavirem.contact@gmail.com">
+    Contact ZAVIREM
+  </a>
+
+  <br>
+
+  <a class="contact-email" href="mailto:zavirem.contact@gmail.com">
+    zavirem.contact@gmail.com
+  </a>
+
+</section>
+
+</main>
+
+<footer>
+  <span>© 2026 ZAVIREM</span>
+  <span>AUTHENTIC TIMEPIECES · SPAIN</span>
+</footer>
+
+</body>
+</html>
