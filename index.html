@@ -224,6 +224,11 @@ footer {
 <body>
 
 <header>
+  <div class="language-switch">
+  <button onclick="setLanguage('es')">ES</button>
+  <span>|</span>
+  <button onclick="setLanguage('en')">EN</button>
+</div>
   <div class="logo">ZAVIREM</div>
 
   <nav>
@@ -346,5 +351,82 @@ footer {
   <span>AUTHENTIC TIMEPIECES · SPAIN</span>
 </footer>
 
+<script>
+const translations = {
+  en: {
+    "Collection": "Collection",
+    "About": "About",
+    "Contact": "Contact",
+    "AUTHENTIC TIMEPIECES · SPAIN": "AUTHENTIC TIMEPIECES · SPAIN",
+    "A new destination for exceptional watches.": "A new destination for exceptional watches.",
+    "ZAVIREM is a destination for authentic new and pre-owned timepieces, carefully selected for those who appreciate precision, heritage and timeless design.": "ZAVIREM is a destination for authentic new and pre-owned timepieces, carefully selected for those who appreciate precision, heritage and timeless design.",
+    "ENQUIRE ABOUT A TIMEPIECE": "ENQUIRE ABOUT A TIMEPIECE",
+    "The collection": "The collection",
+    "Carefully selected. Authenticated. Available on request.": "Carefully selected. Authenticated. Available on request.",
+    "New Timepieces": "New Timepieces",
+    "Discover selected new watches from prestigious watchmaking houses.": "Discover selected new watches from prestigious watchmaking houses.",
+    "Pre-Owned": "Pre-Owned",
+    "Carefully sourced pre-owned pieces with authenticity and condition at the forefront.": "Carefully sourced pre-owned pieces with authenticity and condition at the forefront.",
+    "By Request": "By Request",
+    "Looking for a specific reference? Tell us what you're searching for and we'll source it for you.": "Looking for a specific reference? Tell us what you're searching for and we'll source it for you.",
+    "OUR PHILOSOPHY": "OUR PHILOSOPHY",
+    "Less noise. More time.": "Less noise. More time.",
+    "GET IN TOUCH": "GET IN TOUCH",
+    "Looking for a specific timepiece?": "Looking for a specific timepiece?",
+    "Contact ZAVIREM and tell us the reference you're looking for.": "Contact ZAVIREM and tell us the reference you're looking for.",
+    "CONTACT ZAVIREM": "CONTACT ZAVIREM",
+    "AUTHENTIC TIMEPIECES · SPAIN": "AUTHENTIC TIMEPIECES · SPAIN"
+  },
+
+  es: {
+    "Collection": "Colección",
+    "About": "Nosotros",
+    "Contact": "Contacto",
+    "AUTHENTIC TIMEPIECES · SPAIN": "RELOJES AUTÉNTICOS · ESPAÑA",
+    "A new destination for exceptional watches.": "Un nuevo destino para relojes excepcionales.",
+    "ZAVIREM is a destination for authentic new and pre-owned timepieces, carefully selected for those who appreciate precision, heritage and timeless design.": "ZAVIREM es un destino para relojes auténticos, nuevos y de segunda mano, cuidadosamente seleccionados para quienes valoran la precisión, la historia y el diseño atemporal.",
+    "ENQUIRE ABOUT A TIMEPIECE": "CONSULTAR SOBRE UN RELOJ",
+    "The collection": "La colección",
+    "Carefully selected. Authenticated. Available on request.": "Cuidadosamente seleccionados. Autenticados. Disponibles bajo consulta.",
+    "New Timepieces": "Relojes nuevos",
+    "Discover selected new watches from prestigious watchmaking houses.": "Descubrí relojes nuevos seleccionados de prestigiosas casas relojeras.",
+    "Pre-Owned": "Relojes de segunda mano",
+    "Carefully sourced pre-owned pieces with authenticity and condition at the forefront.": "Piezas de segunda mano cuidadosamente seleccionadas, con la autenticidad y el estado como prioridad.",
+    "By Request": "Bajo consulta",
+    "Looking for a specific reference? Tell us what you're searching for and we'll source it for you.": "¿Buscás una referencia concreta? Decinos qué reloj estás buscando y lo encontraremos para vos.",
+    "OUR PHILOSOPHY": "NUESTRA FILOSOFÍA",
+    "Less noise. More time.": "Menos ruido. Más tiempo.",
+    "GET IN TOUCH": "CONTACTANOS",
+    "Looking for a specific timepiece?": "¿Buscás un reloj concreto?",
+    "Contact ZAVIREM and tell us the reference you're looking for.": "Contactá con ZAVIREM y decinos qué referencia estás buscando.",
+    "CONTACT ZAVIREM": "CONTACTAR CON ZAVIREM",
+    "AUTHENTIC TIMEPIECES · SPAIN": "RELOJES AUTÉNTICOS · ESPAÑA"
+  }
+};
+
+function setLanguage(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("body *").forEach(element => {
+        if (element.children.length === 0) {
+            const currentText = element.textContent.trim();
+
+            let key = Object.keys(translations.en).find(
+                k => translations.en[k] === currentText
+            );
+
+            if (!key) {
+                key = Object.keys(translations.es).find(
+                    k => translations.es[k] === currentText
+                );
+            }
+
+            if (key && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        }
+    });
+}
+</script>
 </body>
 </html>
