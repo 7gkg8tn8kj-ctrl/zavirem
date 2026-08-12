@@ -659,17 +659,27 @@ justify-content:center;
 }
 
 .product-photo{
-height:65%;
+height:68%;
 display:flex;
 align-items:center;
 justify-content:center;
 position:relative;
+overflow:hidden;
 background:
 radial-gradient(
 circle at 50% 45%,
 rgba(201,166,95,.12),
-transparent 42%
+transparent 55%
 );
+}
+
+.product-photo img{
+width:100%;
+height:100%;
+display:block;
+object-fit:contain;
+object-position:center;
+padding:10px;
 }
 
 .watch-placeholder{
@@ -1620,265 +1630,301 @@ let activeBrand = null;
 
 const products = [
 
-/* ROLEX */
+/* ==================== ROLEX ==================== */
 
 {
 brand:"Rolex",
 name:"Submariner Negro",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/YCSh1ZV2/06548ED0-8A66-44A4-8670-1335DE2F90A0.png"
 },
 
 {
 brand:"Rolex",
 name:"Submariner Hulk",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/tsWX43g9/07870645-67C6-4AB2-AF45-59E2C6541D67.png"
 },
 
 {
 brand:"Rolex",
 name:"Submariner Pitufo",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/Y47tGv4m/08323010-8BD9-4073-AF32-E3CA917750B0.png"
 },
 
 {
 brand:"Rolex",
 name:"Submariner Oro",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/LqV2zmfy/0CB1F4C6-AA8C-42B1-B738-96CBF0968ACD.png"
 },
 
 {
 brand:"Rolex",
 name:"Submariner Oro Blue",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/gx8Y2V0c/0CF7C26B-B8A3-42A5-8F1D-01C78DA45E75.png"
 },
 
 {
 brand:"Rolex",
 name:"Submariner Rose Gold",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/wtkgh9Jf/0FF7E45B-3FA4-48DC-A0D6-D1AE25AC6F43.png"
 },
 
 {
 brand:"Rolex",
 name:"GMT-Master II Zombie",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/cKc0QdYX/20162045-0748-4C20-86AF-2560277E0D59.png"
 },
 
 {
 brand:"Rolex",
 name:"GMT-Master II Bluesy",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/QF1XdQMx/39F1CA61-C256-4AFD-8B0E-283FF19401DE.png"
 },
 
 {
 brand:"Rolex",
 name:"GMT-Master II Rootbeer",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/CRkFxGKR/4014AF2F-9CD9-4D6C-8A61-80B0AC08D9F6.png"
 },
 
 {
 brand:"Rolex",
 name:"GMT-Master II Batman Oyster",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/dLzsFHJc/4892196E-6B17-4930-B267-CA7AA2448169.png"
 },
 
 {
 brand:"Rolex",
 name:"GMT-Master II Pepsi Oyster",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/3yh34kyL/522C6492-085C-4CFC-88D0-116EAD0DCB34.png"
 },
 
 {
 brand:"Rolex",
 name:"GMT-Master II Batgirl Jubilee",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/KKbmk1KZ/527EE8BF-C845-4200-9600-7775AAF0BF96.png"
 },
 
 {
 brand:"Rolex",
 name:"GMT-Master II Pepsi Jubilee",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/mcSBQTMV/59B0B5F7-8486-4842-9EBE-04808BEC8581.png"
 },
 
 {
 brand:"Rolex",
 name:"GMT-Master II Bruce Wayne",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/w1L6jXB7/64634CC1-ED0A-4F19-8CF4-3BB3C3D4DD64.png"
 },
 
 {
 brand:"Rolex",
 name:"Daytona Negro",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/nC6FxRpR/662DB81E-258D-49B9-9B8D-F772B4F959DC.png"
 },
 
 {
 brand:"Rolex",
 name:"Daytona Panda",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/FfvhdYfs/67134B42-FBF9-458F-A477-E496BD4F929A.png"
 },
 
 {
 brand:"Rolex",
 name:"Daytona Platinum",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/HJmTcrJ2/685285A7-CB98-4AA9-98A4-3E2D627A6F84.png"
 },
 
 {
 brand:"Rolex",
 name:"Datejust Negro",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/B83JLj8m/703DD359-AF61-4CC0-A706-24811D671D1D.png"
 },
 
 {
 brand:"Rolex",
 name:"Datejust Blanco",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/DSL2wrzW/77AF82DA-7DF0-49F1-8988-4D514E2D5AAD.png"
 },
 
 {
 brand:"Rolex",
 name:"Datejust Blue",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/QF1XdQMr/7CEA22A0-ECDD-4B15-B380-F1710502D4F5.png"
 },
 
 {
 brand:"Rolex",
 name:"Datejust Verde",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/NyxB1QTR/9191E108-7163-4F6E-A71A-41F5CDF983F9.png"
 },
 
 {
 brand:"Rolex",
 name:"Day-Date Gold",
-price:"180 €"
+price:"180 €",
+image:"https://i.postimg.cc/9DZWQdfm/930C8D9E-611F-45BA-A605-1990FBAE1A17.png"
 },
 
 {
-  brand:"Rolex",
-  name:"Day-Date Olive",
-  price:"180 €",
-  image:"https://i.postimg.cc/YCSh1ZV2/06548ED0-8A66-44A4-8670-1335DE2F90A0.png"
+brand:"Rolex",
+name:"Day-Date Olive",
+price:"180 €",
+image:"https://i.postimg.cc/Jy8RDsyG/94226ACF-F257-44D2-8A6A-6F70185101D4.png"
 },
 
-
-/* PATEK PHILIPPE */
+/* ================= PATEK PHILIPPE ================= */
 
 {
 brand:"Patek Philippe",
 name:"Patek Negro",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/wtz9y1tN/9DB40224-0031-4AF9-A589-1EAB6D92651A.png"
 },
 
 {
 brand:"Patek Philippe",
 name:"Patek Blanco",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/NytQ9Kym/9EC62736-B58C-48B0-B202-FE2F4E96935F.png"
 },
 
 {
 brand:"Patek Philippe",
 name:"Patek Blue",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/VJnYkqkH/A358B4B4-27C1-4CCD-8035-B02F078D0357.png"
 },
 
 {
 brand:"Patek Philippe",
 name:"Patek Chroma",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/WD7TMsgP/A359D094-273D-4BF4-A6FD-2B6C0DFAC86B.png"
 },
 
 {
 brand:"Patek Philippe",
 name:"Patek Cubitus",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/G4GcmFmN/A45B83A7-6E0F-4F5E-8B74-8B747E8ACA66.png"
 },
 
 {
 brand:"Patek Philippe",
 name:"Patek Aquanaut",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/Y4xM1tgy/A8A1664D-EF72-43DF-BC81-81BA1C15EF6B.png"
 },
 
-
-/* AUDEMARS PIGUET */
+/* ================= AUDEMARS PIGUET ================= */
 
 {
 brand:"Audemars Piguet",
 name:"AP Blanco",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/LqSmYJqm/ACE599E2-7274-4FEA-A2DF-2E5C0DFDB630.png"
 },
 
 {
 brand:"Audemars Piguet",
 name:"AP Negro",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/nC6FxRpy/AF76FEB6-5BBB-4C0B-88ED-74A85DF3200D.png"
 },
 
 {
 brand:"Audemars Piguet",
 name:"AP Rose Gold",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/pmz2Lfdv/BC5B9FD7-78B3-4B66-8E7D-B2E6B24E242C.png"
 },
 
 {
 brand:"Audemars Piguet",
 name:"AP Skeleton Oro-Negro",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/jWTRwDWw/BF2B9DF3-6B86-4D94-8FCD-D8BD33E15260.png"
 },
 
 {
 brand:"Audemars Piguet",
 name:"AP Skeleton Oro-Blanco",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/KK5xnmLn/C261925E-51D0-4989-A0F6-FA93B4749716.png"
 },
 
 {
 brand:"Audemars Piguet",
 name:"AP Skeleton Acero-Negro",
-price:"210 €"
+price:"210 €",
+image:"https://i.postimg.cc/sBJsp3Sc/C55D86E2-A12B-4609-A666-E3A45FFAB17A.png"
 },
 
-
-/* CARTIER */
+/* ================= CARTIER ================= */
 
 {
 brand:"Cartier",
 name:"VVS Moissanite",
-price:"330 €"
+price:"330 €",
+image:"https://i.postimg.cc/SX4m2nXV/C935AC82-2F8D-46E4-98E5-4CAD2A141556.png"
 },
 
 {
 brand:"Cartier",
 name:"Santos Oro",
-price:"170 €"
+price:"170 €",
+image:"https://i.postimg.cc/3yZYg3m5/CB87C7A6-3125-41D8-8A20-26ADC0461D9D.png"
 },
 
 {
 brand:"Cartier",
 name:"Santos Rose Gold",
-price:"170 €"
+price:"170 €",
+image:"https://i.postimg.cc/zLk8nqWx/CF235104-BFB6-42C8-924E-AE476B9B6AD0.png"
 },
 
-
-/* RICHARD MILLE */
+/* ================= RICHARD MILLE ================= */
 
 {
 brand:"Richard Mille",
 name:"RM 35",
-price:"170 €"
-},
-
-{
-brand:"Richard Mille",
-name:"RM 35",
-price:"170 €"
+price:"170 €",
+image:"https://i.postimg.cc/94BCGcTs/D23679A9-6ADF-44B9-B60C-EE6D9391914F.png"
 },
 
 {
 brand:"Richard Mille",
 name:"RM 35",
-price:"170 €"
+price:"170 €",
+image:"https://i.postimg.cc/Jy8RDsyj/E4C64C61-8055-47E0-A600-36E2A2418F53.png"
+},
+
+{
+brand:"Richard Mille",
+name:"RM 35",
+price:"170 €",
+image:"https://i.postimg.cc/FY39HyKX/F6D8427F-9444-4B9B-B5EC-19EDDB278833.png"
 }
 
 ];
@@ -2217,7 +2263,6 @@ onclick="flipProduct(this)">
 <img
 src="${product.image || ''}"
 alt="${product.name}"
-style="width:100%;height:100%;object-fit:contain"
 >
 
 </div>
