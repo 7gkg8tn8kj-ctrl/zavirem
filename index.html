@@ -11,16 +11,24 @@ content="ZAVIREM — Authentic Timepieces · Spain">
 
 <style>
 
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root{
---black:#070707;
+--black:#060606;
 --black2:#0b0b0b;
---panel:#111;
 --cream:#f4f0e8;
 --gold:#c9a65f;
---gold2:#9e7b3e;
+--gold-light:#dfbd72;
 --muted:#999;
---line:#282828;
+--line:#292929;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
 box-sizing:border-box;
@@ -56,117 +64,154 @@ margin:auto;
 
 
 /* =========================================================
-   FONDO DINÁMICO
+   FONDO — RELOJES GRANDES Y DESENFOCADOS
 ========================================================= */
 
-.watch-bg{
+.watch-background{
 position:fixed;
 inset:0;
-z-index:0;
-pointer-events:none;
 overflow:hidden;
+pointer-events:none;
+z-index:0;
 }
 
-.watch-bg::after{
+.watch-background:after{
 content:"";
 position:absolute;
 inset:0;
 background:
-radial-gradient(
-circle at 50% 30%,
-rgba(201,166,95,.07),
-transparent 38%
-),
 linear-gradient(
 180deg,
-rgba(7,7,7,.10),
-rgba(7,7,7,.45)
+rgba(6,6,6,.18),
+rgba(6,6,6,.58)
 );
-z-index:5;
 }
 
 
-/* relojes decorativos */
+/* reloj */
 
 .bg-watch{
 position:absolute;
-width:430px;
-height:600px;
-border-radius:46%;
-opacity:.16;
-filter:blur(9px);
-transform:rotate(-18deg);
+
+width:470px;
+height:470px;
+
+border-radius:50%;
+
+border:3px solid rgba(201,166,95,.20);
+
 background:
 radial-gradient(
-circle at 50% 40%,
-rgba(210,175,105,.22) 0 16%,
-rgba(20,20,20,.55) 17% 31%,
-rgba(190,155,90,.12) 32% 42%,
-rgba(0,0,0,.7) 43% 100%
+circle at center,
+rgba(30,28,23,.82) 0%,
+rgba(10,10,10,.88) 52%,
+rgba(0,0,0,.96) 70%
 );
-border:2px solid rgba(201,166,95,.16);
+
 box-shadow:
-0 0 100px rgba(201,166,95,.08);
+0 0 90px rgba(201,166,95,.09),
+inset 0 0 80px rgba(201,166,95,.06);
+
+filter:blur(10px);
+
+opacity:.28;
 }
 
-.bg-watch::before{
+
+/* bisel */
+
+.bg-watch:before{
 content:"";
+
 position:absolute;
-left:50%;
-top:-210px;
-transform:translateX(-50%);
-width:145px;
-height:320px;
-border-radius:50px;
-background:
-linear-gradient(
-90deg,
-rgba(0,0,0,.7),
-rgba(201,166,95,.15),
-rgba(0,0,0,.7)
-);
+
+inset:25px;
+
+border-radius:50%;
+
+border:2px solid rgba(201,166,95,.22);
+
+box-shadow:
+inset 0 0 25px rgba(201,166,95,.10);
 }
 
-.bg-watch::after{
+
+/* agujas */
+
+.bg-watch:after{
 content:"";
+
 position:absolute;
+
+width:2px;
+height:145px;
+
+background:rgba(201,166,95,.35);
+
 left:50%;
-bottom:-210px;
-transform:translateX(-50%);
-width:145px;
-height:320px;
-border-radius:50px;
-background:
-linear-gradient(
-90deg,
-rgba(0,0,0,.7),
-rgba(201,166,95,.13),
-rgba(0,0,0,.7)
-);
+top:50%;
+
+transform-origin:bottom center;
+
+transform:translate(-50%,-100%) rotate(38deg);
+
+box-shadow:
+35px 20px 0 -0.5px rgba(244,240,232,.20);
 }
 
-.watch-one{
-left:-180px;
-top:5%;
-transform:rotate(-24deg) scale(1.15);
+
+/* reloj izquierdo */
+
+.watch-left{
+left:-250px;
+top:9%;
+
+transform:rotate(-18deg) scale(1.15);
 }
 
-.watch-two{
-right:-190px;
-top:31%;
-transform:rotate(21deg) scale(.95);
-opacity:.12;
+
+/* reloj derecho */
+
+.watch-right{
+right:-270px;
+top:37%;
+
+transform:rotate(22deg) scale(.95);
+
+opacity:.20;
 }
 
-.watch-three{
-left:22%;
-bottom:-300px;
+
+/* reloj inferior */
+
+.watch-bottom{
+left:28%;
+bottom:-360px;
+
 transform:rotate(-8deg) scale(1.25);
-opacity:.08;
+
+opacity:.15;
 }
 
 
-/* Todo el contenido por delante del fondo */
+/* segundo anillo decorativo */
+
+.watch-left .ring,
+.watch-right .ring,
+.watch-bottom .ring{
+position:absolute;
+
+inset:65px;
+
+border-radius:50%;
+
+border:1px solid rgba(244,240,232,.12);
+}
+
+
+/* =========================================================
+   CONTENIDO SOBRE EL FONDO
+========================================================= */
 
 header,
 main,
@@ -185,10 +230,10 @@ position:sticky;
 top:0;
 z-index:20;
 
-background:rgba(7,7,7,.88);
+background:rgba(6,6,6,.90);
 
-backdrop-filter:blur(16px);
--webkit-backdrop-filter:blur(16px);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
 
 border-bottom:1px solid rgba(255,255,255,.08);
 }
@@ -199,7 +244,6 @@ min-height:72px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 gap:20px;
 }
 
@@ -207,6 +251,7 @@ gap:20px;
 font-family:Georgia,"Times New Roman",serif;
 
 font-size:19px;
+
 letter-spacing:.38em;
 
 color:var(--gold);
@@ -271,7 +316,7 @@ display:none;
 
 border-top:1px solid var(--line);
 
-background:rgba(10,10,10,.97);
+background:rgba(8,8,8,.98);
 }
 
 .panel.open{
@@ -311,13 +356,11 @@ align-items:center;
 
 padding:100px 0;
 
-position:relative;
-
 background:
 radial-gradient(
 circle at 70% 35%,
-rgba(45,35,20,.55),
-transparent 35%
+rgba(50,38,20,.32),
+transparent 38%
 );
 }
 
@@ -403,8 +446,6 @@ section{
 padding:110px 0;
 
 border-top:1px solid rgba(255,255,255,.07);
-
-position:relative;
 }
 
 .section-title{
@@ -445,22 +486,24 @@ margin-bottom:0;
 }
 
 
-/* botón abrir colección */
+/* BOTÓN */
 
 .collection-toggle{
 display:inline-flex;
 
 align-items:center;
 
+justify-content:center;
+
 gap:12px;
 
-background:transparent;
+background:rgba(0,0,0,.28);
 
-border:1px solid #444;
+border:1px solid var(--gold);
 
-color:var(--cream);
+color:var(--gold);
 
-padding:14px 20px;
+padding:15px 25px;
 
 font-size:10px;
 
@@ -476,25 +519,32 @@ white-space:nowrap;
 }
 
 .collection-toggle:hover{
-border-color:var(--gold);
-
-color:var(--gold);
+background:rgba(201,166,95,.08);
 }
 
-.collection-toggle span{
+
+/*
+IMPORTANTE:
+solo el icono gira.
+El texto NO.
+*/
+
+.collection-icon{
+display:inline-block;
+
 font-size:18px;
 
-line-height:0;
+line-height:1;
 
 transition:.3s;
 }
 
-.collection-toggle.active span{
+.collection-toggle.active .collection-icon{
 transform:rotate(45deg);
 }
 
 
-/* catálogo oculto */
+/* catálogo cerrado */
 
 .collection-list{
 display:none;
@@ -504,13 +554,16 @@ grid-template-columns:repeat(3,1fr);
 gap:14px;
 }
 
+
+/* catálogo abierto */
+
 .collection-list.open{
 display:grid;
 }
 
 
 /* =========================================================
-   CARDS
+   CARDS DE RELOJES
 ========================================================= */
 
 .card{
@@ -519,8 +572,8 @@ border:1px solid #292929;
 background:
 linear-gradient(
 145deg,
-rgba(22,22,22,.88),
-rgba(10,10,10,.92)
+rgba(20,20,20,.94),
+rgba(8,8,8,.96)
 );
 
 overflow:hidden;
@@ -547,7 +600,7 @@ background:
 radial-gradient(
 circle,
 rgba(201,166,95,.11),
-transparent 55%
+transparent 57%
 );
 
 position:relative;
@@ -555,42 +608,30 @@ position:relative;
 overflow:hidden;
 }
 
-.card-image::after{
-content:"";
 
-position:absolute;
-
-inset:0;
-
-background:
-linear-gradient(
-180deg,
-transparent 40%,
-rgba(0,0,0,.65)
-);
-}
+/* reloj placeholder */
 
 .watch-placeholder{
 width:170px;
 height:220px;
 
-border-radius:42%;
+border-radius:43%;
 
-border:2px solid rgba(201,166,95,.28);
+border:2px solid rgba(201,166,95,.34);
 
 background:
 radial-gradient(
 circle,
-#24211b 0 25%,
-#080808 27% 100%
+#25221b 0 24%,
+#090909 27% 100%
 );
 
 box-shadow:
-0 0 50px rgba(201,166,95,.10);
+0 0 55px rgba(201,166,95,.12);
 
 transform:rotate(-12deg);
 
-filter:blur(.4px);
+filter:blur(.5px);
 }
 
 .card-content{
@@ -653,39 +694,198 @@ color:var(--gold);
 .brands{
 display:grid;
 
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(3,1fr);
 
-gap:12px;
+gap:14px;
 }
 
+
+/* tarjeta de marca */
+
 .brand{
+min-height:210px;
+
 border:1px solid #292929;
 
-padding:28px 20px;
+background:
+linear-gradient(
+145deg,
+rgba(9,9,9,.96),
+rgba(15,15,15,.92)
+);
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
 
 text-align:center;
 
-color:#ddd;
-
-font-family:Georgia,serif;
-
-font-size:22px;
-
-background:rgba(8,8,8,.55);
-
 cursor:pointer;
 
-transition:.25s;
+transition:.3s;
+
+position:relative;
+
+overflow:hidden;
 }
 
 .brand:hover{
 border-color:var(--gold);
 
+transform:translateY(-4px);
+
+background:
+linear-gradient(
+145deg,
+rgba(25,21,15,.96),
+rgba(10,10,10,.96)
+);
+}
+
+
+/* número */
+
+.brand-number{
+position:absolute;
+
+top:18px;
+left:18px;
+
 color:var(--gold);
 
-background:rgba(201,166,95,.04);
+font-size:10px;
 
-transform:translateY(-2px);
+letter-spacing:.22em;
+}
+
+
+/* logos */
+
+.brand-logo{
+height:58px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin-bottom:18px;
+
+color:var(--gold-light);
+
+filter:
+drop-shadow(
+0 0 8px rgba(201,166,95,.14)
+);
+}
+
+
+/* Rolex */
+
+.logo-rolex{
+font-size:58px;
+
+line-height:1;
+
+font-family:Georgia,serif;
+}
+
+.logo-rolex:before{
+content:"♛";
+}
+
+
+/* Patek */
+
+.logo-patek{
+font-family:Georgia,serif;
+
+font-size:55px;
+
+font-weight:bold;
+}
+
+.logo-patek:before{
+content:"✤";
+}
+
+
+/* AP */
+
+.logo-ap{
+font-family:Georgia,serif;
+
+font-size:48px;
+
+font-weight:400;
+
+letter-spacing:-.12em;
+}
+
+.logo-ap:before{
+content:"AP";
+}
+
+
+/* Cartier */
+
+.logo-cartier{
+font-family:Georgia,serif;
+
+font-size:52px;
+
+font-weight:400;
+}
+
+.logo-cartier:before{
+content:"C";
+}
+
+
+/* Richard Mille */
+
+.logo-rm{
+font-family:Georgia,serif;
+
+font-size:43px;
+
+font-weight:bold;
+
+letter-spacing:-.08em;
+}
+
+.logo-rm:before{
+content:"RM";
+}
+
+
+.brand-name{
+font-family:Georgia,"Times New Roman",serif;
+
+font-size:25px;
+
+color:#eee;
+
+margin-bottom:13px;
+}
+
+.brand-arrow{
+color:var(--gold);
+
+font-size:25px;
+
+line-height:1;
+
+transition:.25s;
+}
+
+.brand:hover .brand-arrow{
+transform:translateX(7px);
 }
 
 
@@ -704,7 +904,7 @@ circle at 80% 30%,
 rgba(201,166,95,.09),
 transparent 40%
 ),
-rgba(12,12,12,.65);
+rgba(12,12,12,.78);
 }
 
 
@@ -718,7 +918,7 @@ text-align:center;
 background:
 radial-gradient(
 circle at 50% 50%,
-rgba(201,166,95,.05),
+rgba(201,166,95,.06),
 transparent 45%
 );
 }
@@ -794,10 +994,6 @@ text-align:center;
 
 @media(min-width:701px){
 
-.menu-toggle{
-display:block;
-}
-
 .panel{
 position:absolute;
 
@@ -807,11 +1003,7 @@ top:72px;
 
 width:300px;
 
-box-shadow:0 20px 50px rgba(0,0,0,.65);
-}
-
-.panel:not(.open){
-display:none;
+box-shadow:0 20px 50px rgba(0,0,0,.7);
 }
 
 }
@@ -877,8 +1069,6 @@ margin-bottom:25px;
 
 .collection-toggle{
 width:100%;
-
-justify-content:center;
 }
 
 .collection-list{
@@ -891,42 +1081,77 @@ gap:16px;
 height:310px;
 }
 
+
+/* marcas móvil */
+
 .brands{
 grid-template-columns:1fr 1fr;
+
+gap:12px;
 }
 
 .brand{
-font-size:17px;
+min-height:190px;
+}
 
-padding:24px 10px;
+.brand-logo{
+height:48px;
+}
+
+.logo-rolex{
+font-size:46px;
+}
+
+.logo-patek{
+font-size:43px;
+}
+
+.logo-ap{
+font-size:39px;
+}
+
+.logo-cartier{
+font-size:42px;
+}
+
+.logo-rm{
+font-size:36px;
+}
+
+.brand-name{
+font-size:19px;
+}
+
+.brand-arrow{
+font-size:21px;
+}
+
+
+/* fondo móvil */
+
+.bg-watch{
+filter:blur(13px);
+
+opacity:.18;
+}
+
+.watch-left{
+left:-300px;
+top:8%;
+}
+
+.watch-right{
+right:-300px;
+top:45%;
+}
+
+.watch-bottom{
+left:-90px;
+bottom:-270px;
 }
 
 .available-box{
 padding:32px 22px;
-}
-
-.bg-watch{
-filter:blur(12px);
-
-opacity:.10;
-}
-
-.watch-one{
-left:-250px;
-
-top:8%;
-}
-
-.watch-two{
-right:-270px;
-
-top:48%;
-}
-
-.watch-three{
-left:-100px;
-
-bottom:-250px;
 }
 
 }
@@ -943,42 +1168,54 @@ grid-template-columns:1fr;
 }
 
 .brand{
-font-size:20px;
+min-height:180px;
 }
 
 }
 
 
 /* =========================================================
-   ANIMACIÓN SUAVE DEL FONDO
+   MOVIMIENTO SUTIL DEL FONDO
 ========================================================= */
 
-@keyframes floatWatch{
+@keyframes floatLeft{
 
 0%{
-transform:translateY(0) rotate(-18deg);
+transform:rotate(-18deg) scale(1.15) translateY(0);
 }
 
 50%{
-transform:translateY(-18px) rotate(-16deg);
+transform:rotate(-16deg) scale(1.15) translateY(-22px);
 }
 
 100%{
-transform:translateY(0) rotate(-18deg);
+transform:rotate(-18deg) scale(1.15) translateY(0);
 }
 
 }
 
-.watch-one{
-animation:floatWatch 13s ease-in-out infinite;
+@keyframes floatRight{
+
+0%{
+transform:rotate(22deg) scale(.95) translateY(0);
 }
 
-.watch-two{
-animation:floatWatch 17s ease-in-out infinite reverse;
+50%{
+transform:rotate(20deg) scale(.95) translateY(25px);
 }
 
-.watch-three{
-animation:floatWatch 21s ease-in-out infinite;
+100%{
+transform:rotate(22deg) scale(.95) translateY(0);
+}
+
+}
+
+.watch-left{
+animation:floatLeft 15s ease-in-out infinite;
+}
+
+.watch-right{
+animation:floatRight 18s ease-in-out infinite;
 }
 
 </style>
@@ -989,18 +1226,25 @@ animation:floatWatch 21s ease-in-out infinite;
 
 
 <!-- =====================================================
-     FONDO
+     RELOJES DE FONDO
 ===================================================== -->
 
-<div class="watch-bg">
+<div class="watch-background">
 
-<div class="bg-watch watch-one"></div>
+<div class="bg-watch watch-left">
+<div class="ring"></div>
+</div>
 
-<div class="bg-watch watch-two"></div>
+<div class="bg-watch watch-right">
+<div class="ring"></div>
+</div>
 
-<div class="bg-watch watch-three"></div>
+<div class="bg-watch watch-bottom">
+<div class="ring"></div>
+</div>
 
 </div>
+
 
 
 <!-- =====================================================
@@ -1011,13 +1255,16 @@ animation:floatWatch 21s ease-in-out infinite;
 
 <div class="wrap nav">
 
+
 <div class="lang">
 
 <button
 id="esBtn"
 class="active"
 onclick="setLanguage('es')">
+
 ES
+
 </button>
 
 <span>|</span>
@@ -1025,14 +1272,20 @@ ES
 <button
 id="enBtn"
 onclick="setLanguage('en')">
+
 EN
+
 </button>
 
 </div>
 
 
-<a href="#home" class="logo">
+<a
+href="#home"
+class="logo">
+
 ZAVIREM
+
 </a>
 
 
@@ -1042,7 +1295,9 @@ ZAVIREM
 class="menu-toggle"
 onclick="toggleMenu()"
 aria-label="Menu">
+
 ☰
+
 </button>
 
 </div>
@@ -1050,7 +1305,9 @@ aria-label="Menu">
 </div>
 
 
-<nav id="panel" class="panel">
+<nav
+id="panel"
+class="panel">
 
 <a href="#collection" data-key="navCollection">
 Colección
@@ -1077,21 +1334,27 @@ Contacto
 </header>
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
 
 <main>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<section class="hero" id="home">
+<section
+class="hero"
+id="home">
 
 <div class="wrap hero-inner">
 
-<div class="eyebrow" data-key="eyebrow">
+
+<div
+class="eyebrow"
+data-key="eyebrow">
+
 TIMEPIECES · SPAIN
+
 </div>
 
 
@@ -1101,8 +1364,12 @@ TIMEPIECES · SPAIN
 Un nuevo destino para
 </span>
 
-<span class="gold" data-key="hero2">
+<span
+class="gold"
+data-key="hero2">
+
  relojes excepcionales.
+
 </span>
 
 </h1>
@@ -1125,25 +1392,33 @@ EXPLORAR COLECCIÓN
 
 </a>
 
+
 </div>
 
 </section>
 
 
 
-<!-- COLECCIÓN -->
+<!-- =====================================================
+     COLECCIÓN
+===================================================== -->
 
 <section id="collection">
 
 <div class="wrap">
 
 
-<div class="eyebrow" data-key="collectionEyebrow">
+<div
+class="eyebrow"
+data-key="collectionEyebrow">
+
 SELECCIÓN
+
 </div>
 
 
 <div class="collection-intro">
+
 
 <div>
 
@@ -1172,15 +1447,25 @@ Disponibles bajo consulta.
 class="collection-toggle"
 onclick="toggleCollection()">
 
-<span id="collectionIcon">
+
+<span
+class="collection-icon"
+id="collectionIcon">
+
 +
+
 </span>
+
 
 <span data-key="collectionButton">
+
 VER RELOJES
+
 </span>
 
+
 </button>
+
 
 </div>
 
@@ -1193,8 +1478,6 @@ id="collectionList"
 class="collection-list">
 
 
-<!-- ROLEX -->
-
 <div
 class="card"
 id="rolex">
@@ -1204,7 +1487,6 @@ id="rolex">
 <div class="watch-placeholder"></div>
 
 </div>
-
 
 <div class="card-content">
 
@@ -1216,15 +1498,14 @@ id="rolex">
 Rolex
 </h3>
 
-<p data-key="rolexText">
+<p>
 Referencias Rolex seleccionadas y disponibles
 bajo consulta.
 </p>
 
 <a
 href="#contact"
-class="card-btn"
-data-key="consultPiece">
+class="card-btn">
 
 CONSULTAR PIEZA
 
@@ -1236,8 +1517,6 @@ CONSULTAR PIEZA
 
 
 
-<!-- PATEK -->
-
 <div
 class="card"
 id="patek">
@@ -1247,7 +1526,6 @@ id="patek">
 <div class="watch-placeholder"></div>
 
 </div>
-
 
 <div class="card-content">
 
@@ -1278,8 +1556,6 @@ CONSULTAR PIEZA
 
 
 
-<!-- AP -->
-
 <div
 class="card"
 id="audemars">
@@ -1289,7 +1565,6 @@ id="audemars">
 <div class="watch-placeholder"></div>
 
 </div>
-
 
 <div class="card-content">
 
@@ -1320,8 +1595,6 @@ CONSULTAR PIEZA
 
 
 
-<!-- CARTIER -->
-
 <div
 class="card"
 id="cartier">
@@ -1331,7 +1604,6 @@ id="cartier">
 <div class="watch-placeholder"></div>
 
 </div>
-
 
 <div class="card-content">
 
@@ -1362,8 +1634,6 @@ CONSULTAR PIEZA
 
 
 
-<!-- RICHARD MILLE -->
-
 <div
 class="card"
 id="richard-mille">
@@ -1373,7 +1643,6 @@ id="richard-mille">
 <div class="watch-placeholder"></div>
 
 </div>
-
 
 <div class="card-content">
 
@@ -1411,11 +1680,14 @@ CONSULTAR PIEZA
 
 
 
-<!-- MARCAS -->
+<!-- =====================================================
+     MARCAS
+===================================================== -->
 
 <section id="brands">
 
 <div class="wrap">
+
 
 <div
 class="eyebrow"
@@ -1439,8 +1711,7 @@ Marcas
 class="section-text"
 data-key="brandsText">
 
-Referencias seleccionadas de distintas
-casas relojeras.
+Referencias seleccionadas de distintas casas relojeras.
 
 </p>
 
@@ -1449,47 +1720,121 @@ casas relojeras.
 <div class="brands">
 
 
+<!-- ROLEX -->
+
 <a
 class="brand"
 href="#rolex">
 
+<div class="brand-number">
+01
+</div>
+
+<div class="brand-logo logo-rolex"></div>
+
+<div class="brand-name">
 Rolex
+</div>
+
+<div class="brand-arrow">
+→
+</div>
 
 </a>
 
+
+
+<!-- PATEK -->
 
 <a
 class="brand"
 href="#patek">
 
+<div class="brand-number">
+02
+</div>
+
+<div class="brand-logo logo-patek"></div>
+
+<div class="brand-name">
 Patek Philippe
+</div>
+
+<div class="brand-arrow">
+→
+</div>
 
 </a>
 
+
+
+<!-- AP -->
 
 <a
 class="brand"
 href="#audemars">
 
+<div class="brand-number">
+03
+</div>
+
+<div class="brand-logo logo-ap"></div>
+
+<div class="brand-name">
 Audemars Piguet
+</div>
+
+<div class="brand-arrow">
+→
+</div>
 
 </a>
 
+
+
+<!-- CARTIER -->
 
 <a
 class="brand"
 href="#cartier">
 
+<div class="brand-number">
+04
+</div>
+
+<div class="brand-logo logo-cartier"></div>
+
+<div class="brand-name">
 Cartier
+</div>
+
+<div class="brand-arrow">
+→
+</div>
 
 </a>
 
+
+
+<!-- RICHARD MILLE -->
 
 <a
 class="brand"
 href="#richard-mille">
 
+<div class="brand-number">
+05
+</div>
+
+<div class="brand-logo logo-rm"></div>
+
+<div class="brand-name">
 Richard Mille
+</div>
+
+<div class="brand-arrow">
+→
+</div>
 
 </a>
 
@@ -1502,13 +1847,16 @@ Richard Mille
 
 
 
-<!-- DISPONIBILIDAD -->
+<!-- =====================================================
+     DISPONIBILIDAD
+===================================================== -->
 
 <section id="available">
 
 <div class="wrap">
 
 <div class="available-box">
+
 
 <div
 class="eyebrow"
@@ -1547,6 +1895,7 @@ CONSULTAR DISPONIBILIDAD
 
 </a>
 
+
 </div>
 
 </div>
@@ -1555,13 +1904,16 @@ CONSULTAR DISPONIBILIDAD
 
 
 
-<!-- FILOSOFÍA -->
+<!-- =====================================================
+     FILOSOFÍA
+===================================================== -->
 
 <section
 id="about"
 class="philosophy">
 
 <div class="wrap">
+
 
 <div
 class="eyebrow"
@@ -1572,25 +1924,22 @@ NUESTRA FILOSOFÍA
 </div>
 
 
-<h2
-data-key="aboutTitle">
+<h2 data-key="aboutTitle">
 
 Menos ruido. Más tiempo.
 
 </h2>
 
 
-<p
-data-key="aboutText">
+<p data-key="aboutText">
 
 ZAVIREM nace alrededor de una idea sencilla:
-un buen reloj no necesita llamar la atención para
-hacerse notar.
-
-Seleccionamos cada pieza buscando diseño,
-personalidad y una experiencia de compra discreta.
+un buen reloj no necesita llamar la atención para hacerse notar.
+Seleccionamos cada pieza buscando diseño, personalidad
+y una experiencia de compra discreta.
 
 </p>
+
 
 </div>
 
@@ -1598,13 +1947,16 @@ personalidad y una experiencia de compra discreta.
 
 
 
-<!-- CONTACTO -->
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
 
 <section
 id="contact"
 class="contact">
 
 <div class="wrap">
+
 
 <div
 class="eyebrow"
@@ -1615,19 +1967,16 @@ CONTACTO
 </div>
 
 
-<h2
-data-key="contactTitle">
+<h2 data-key="contactTitle">
 
 ¿Buscás un reloj concreto?
 
 </h2>
 
 
-<p
-data-key="contactText">
+<p data-key="contactText">
 
-Contactá con ZAVIREM y contanos qué modelo
-estás buscando.
+Contactá con ZAVIREM y contanos qué modelo estás buscando.
 
 </p>
 
@@ -1654,6 +2003,7 @@ zavirem.contact@vmail.com
 
 </p>
 
+
 </div>
 
 </section>
@@ -1662,8 +2012,6 @@ zavirem.contact@vmail.com
 </main>
 
 
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -1675,37 +2023,29 @@ zavirem.contact@vmail.com
 
 <script>
 
-
-/* =====================================================
-   TRADUCCIONES
-===================================================== */
+/* =========================================================
+   IDIOMAS
+========================================================= */
 
 const translations={
 
 es:{
 
 navCollection:"Colección",
-
 navBrands:"Marcas",
-
 navAvailable:"Relojes disponibles",
-
 navAbout:"Sobre ZAVIREM",
-
 navContact:"Contacto",
-
 
 eyebrow:"TIMEPIECES · SPAIN",
 
 hero1:"Un nuevo destino para",
-
 hero2:" relojes excepcionales.",
 
 heroText:
 "Una selección cuidada de relojes para quienes valoran la precisión, el diseño y la personalidad de cada pieza.",
 
 heroButton:"EXPLORAR COLECCIÓN",
-
 
 collectionEyebrow:"SELECCIÓN",
 
@@ -1716,19 +2056,12 @@ collectionText:
 
 collectionButton:"VER RELOJES",
 
-consultPiece:"CONSULTAR PIEZA",
-
-rolexText:
-"Referencias Rolex seleccionadas y disponibles bajo consulta.",
-
-
 brandsEyebrow:"MARCAS",
 
 brandsTitle:"Marcas",
 
 brandsText:
 "Referencias seleccionadas de distintas casas relojeras.",
-
 
 availableEyebrow:"DISPONIBILIDAD",
 
@@ -1739,14 +2072,12 @@ availableText:
 
 availableButton:"CONSULTAR DISPONIBILIDAD",
 
-
 aboutEyebrow:"NUESTRA FILOSOFÍA",
 
 aboutTitle:"Menos ruido. Más tiempo.",
 
 aboutText:
 "ZAVIREM nace alrededor de una idea sencilla: un buen reloj no necesita llamar la atención para hacerse notar. Seleccionamos cada pieza buscando diseño, personalidad y una experiencia de compra discreta.",
-
 
 contactEyebrow:"CONTACTO",
 
@@ -1760,31 +2091,23 @@ contactButton:"CONTACTAR ZAVIREM"
 },
 
 
-
 en:{
 
 navCollection:"Collection",
-
 navBrands:"Brands",
-
 navAvailable:"Available Watches",
-
 navAbout:"About ZAVIREM",
-
 navContact:"Contact",
-
 
 eyebrow:"TIMEPIECES · SPAIN",
 
 hero1:"A new destination for",
-
 hero2:" exceptional watches.",
 
 heroText:
 "A carefully curated selection of timepieces for those who value precision, design and the personality of every piece.",
 
 heroButton:"EXPLORE COLLECTION",
-
 
 collectionEyebrow:"SELECTION",
 
@@ -1795,19 +2118,12 @@ collectionText:
 
 collectionButton:"VIEW WATCHES",
 
-consultPiece:"ENQUIRE ABOUT PIECE",
-
-rolexText:
-"Selected Rolex references available on request.",
-
-
 brandsEyebrow:"BRANDS",
 
 brandsTitle:"Brands",
 
 brandsText:
 "Selected references from distinguished watchmaking houses.",
-
 
 availableEyebrow:"AVAILABILITY",
 
@@ -1818,14 +2134,12 @@ availableText:
 
 availableButton:"CHECK AVAILABILITY",
 
-
 aboutEyebrow:"OUR PHILOSOPHY",
 
 aboutTitle:"Less noise. More time.",
 
 aboutText:
 "ZAVIREM was created around a simple idea: a great watch does not need to demand attention to be noticed. We select every piece with design, personality and a discreet buying experience in mind.",
-
 
 contactEyebrow:"GET IN TOUCH",
 
@@ -1841,10 +2155,9 @@ contactButton:"CONTACT ZAVIREM"
 };
 
 
-
-/* =====================================================
-   IDIOMA
-===================================================== */
+/* =========================================================
+   CAMBIAR IDIOMA
+========================================================= */
 
 function setLanguage(lang){
 
@@ -1886,10 +2199,9 @@ closeMenu();
 }
 
 
-
-/* =====================================================
+/* =========================================================
    MENÚ
-===================================================== */
+========================================================= */
 
 function toggleMenu(){
 
@@ -1899,7 +2211,6 @@ document
 .toggle("open");
 
 }
-
 
 function closeMenu(){
 
@@ -1923,10 +2234,9 @@ closeMenu
 });
 
 
-
-/* =====================================================
-   COLECCIÓN
-===================================================== */
+/* =========================================================
+   ABRIR / CERRAR COLECCIÓN
+========================================================= */
 
 function toggleCollection(){
 
@@ -1946,31 +2256,27 @@ document.getElementById(
 );
 
 
+const isOpen=
 list.classList.toggle("open");
 
-button.classList.toggle("active");
+
+button.classList.toggle(
+"active",
+isOpen
+);
 
 
-if(list.classList.contains("open")){
-
-icon.textContent="×";
-
-}else{
-
-icon.textContent="+";
-
-}
+icon.textContent=
+isOpen ? "×" : "+";
 
 }
 
 
-
-/* =====================================================
+/* =========================================================
    IDIOMA INICIAL
-===================================================== */
+========================================================= */
 
 setLanguage("es");
-
 
 </script>
 
