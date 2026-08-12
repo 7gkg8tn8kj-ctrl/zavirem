@@ -1048,9 +1048,104 @@ zavirem.contact@vmail.com
 
 <script>
 
-const products = [
+<script>
 
-/* ROLEX — 24 */
+const translations = {
+
+es: {
+    hero1: "Un nuevo destino para",
+    hero2: " relojes excepcionales.",
+    heroText: "Una selección cuidada de relojes para quienes valoran la precisión, el diseño y la personalidad de cada pieza.",
+    heroButton: "EXPLORAR COLECCIÓN",
+
+    navCollection: "Colección",
+    navBrands: "Marcas",
+    navAvailable: "Disponibilidad",
+    navAbout: "Sobre ZAVIREM",
+    navContact: "Contacto",
+
+    collectionEyebrow: "SELECCIÓN",
+    collectionTitle: "La colección",
+    collectionText: "Piezas seleccionadas cuidadosamente. Disponibles bajo consulta.",
+    collectionButton: "VER RELOJES",
+
+    brandsEyebrow: "MARCAS",
+    brandsTitle: "Marcas",
+    brandsText: "Seleccioná una marca para ver únicamente sus relojes.",
+
+    availableEyebrow: "DISPONIBILIDAD",
+    availableTitle: "Relojes disponibles",
+    availableText: "El catálogo se muestra por marca. Seleccioná una casa relojera para consultar sus piezas.",
+    availableButton: "VER MARCAS",
+
+    aboutEyebrow: "NUESTRA FILOSOFÍA",
+    aboutTitle: "Menos ruido. Más tiempo.",
+    aboutText: "ZAVIREM nace alrededor de una idea sencilla: un buen reloj no necesita llamar la atención para hacerse notar. Seleccionamos cada pieza buscando diseño, personalidad y una experiencia de compra discreta.",
+
+    contactEyebrow: "CONTACTO",
+    contactTitle: "¿Buscás un reloj concreto?",
+    contactText: "Contactá con ZAVIREM y contanos qué modelo estás buscando.",
+    contactButton: "CONTACTAR ZAVIREM",
+
+    footer: "© 2026 ZAVIREM · AUTHENTIC TIMEPIECES · SPAIN",
+
+    productHint: "TOCAR PARA VER DETALLES",
+    productBackText: "Disponible bajo consulta. Para confirmar disponibilidad, conservación y condiciones de la pieza, contactá con ZAVIREM.",
+    productButton: "CONSULTAR PIEZA",
+    backButton: "VOLVER A MARCAS"
+},
+
+en: {
+    hero1: "A new destination for",
+    hero2: " exceptional watches.",
+    heroText: "A carefully curated selection of timepieces for those who value precision, design and the personality of every piece.",
+    heroButton: "EXPLORE COLLECTION",
+
+    navCollection: "Collection",
+    navBrands: "Brands",
+    navAvailable: "Availability",
+    navAbout: "About ZAVIREM",
+    navContact: "Contact",
+
+    collectionEyebrow: "SELECTION",
+    collectionTitle: "The Collection",
+    collectionText: "Carefully selected pieces. Available on request.",
+    collectionButton: "VIEW WATCHES",
+
+    brandsEyebrow: "BRANDS",
+    brandsTitle: "Brands",
+    brandsText: "Select a brand to view its available timepieces.",
+
+    availableEyebrow: "AVAILABILITY",
+    availableTitle: "Available Watches",
+    availableText: "The catalogue is organised by brand. Select a watchmaking house to view its pieces.",
+    availableButton: "VIEW BRANDS",
+
+    aboutEyebrow: "OUR PHILOSOPHY",
+    aboutTitle: "Less noise. More time.",
+    aboutText: "ZAVIREM was created around a simple idea: a great watch does not need to demand attention to make itself noticed. We select every piece with a focus on design, personality and a discreet purchasing experience.",
+
+    contactEyebrow: "CONTACT",
+    contactTitle: "Looking for a specific timepiece?",
+    contactText: "Contact ZAVIREM and tell us which model you are looking for.",
+    contactButton: "CONTACT ZAVIREM",
+
+    footer: "© 2026 ZAVIREM · AUTHENTIC TIMEPIECES · SPAIN",
+
+    productHint: "TAP TO VIEW DETAILS",
+    productBackText: "Available on request. Contact ZAVIREM to confirm availability, condition and details of the piece.",
+    productButton: "ENQUIRE ABOUT THIS PIECE",
+    backButton: "BACK TO BRANDS"
+}
+
+};
+
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+const products = [
 
 {brand:"Rolex",name:"Submariner Negro",price:180},
 {brand:"Rolex",name:"Submariner Hulk",price:180},
@@ -1064,7 +1159,6 @@ const products = [
 {brand:"Rolex",name:"GMT II - Rootbeer",price:180},
 {brand:"Rolex",name:"GMT II - Batman Oyster",price:180},
 {brand:"Rolex",name:"GMT II - Pepsi Oyster",price:180},
-{brand:"Rolex",name:"GMT II - Zombie",price:180},
 {brand:"Rolex",name:"GMT II - Batgirl Jubilee",price:180},
 {brand:"Rolex",name:"GMT II - Pepsi Jubilee",price:180},
 {brand:"Rolex",name:"GMT II - Bruce Wayne",price:180},
@@ -1081,16 +1175,12 @@ const products = [
 {brand:"Rolex",name:"Daydate Gold",price:180},
 {brand:"Rolex",name:"Daydate Olive",price:180},
 
-/* PATEK PHILIPPE — 6 */
-
 {brand:"Patek Philippe",name:"Patek Negro",price:210},
 {brand:"Patek Philippe",name:"Patek Blanco",price:210},
 {brand:"Patek Philippe",name:"Patek Blue",price:210},
 {brand:"Patek Philippe",name:"Patek Chromo",price:210},
 {brand:"Patek Philippe",name:"Patek Cubitus",price:210},
 {brand:"Patek Philippe",name:"Patek Aquanaut",price:210},
-
-/* AUDEMARS PIGUET — 6 */
 
 {brand:"Audemars Piguet",name:"AP Blanco",price:210},
 {brand:"Audemars Piguet",name:"AP Negro",price:210},
@@ -1099,13 +1189,9 @@ const products = [
 {brand:"Audemars Piguet",name:"AP SKELETON Oro-Blanco",price:210},
 {brand:"Audemars Piguet",name:"AP SKELETON Acero-Negro",price:210},
 
-/* CARTIER — 3 */
-
 {brand:"Cartier",name:"VVS - MOISANITE",price:330},
 {brand:"Cartier",name:"Santos Oro",price:170},
 {brand:"Cartier",name:"Santos Rose Gold",price:170},
-
-/* RICHARD MILLE — 3 */
 
 {brand:"RICHARD MILLE",name:"RM 35",price:170},
 {brand:"RICHARD MILLE",name:"RM 35",price:170},
@@ -1113,53 +1199,188 @@ const products = [
 
 ];
 
+
 /* =========================
-   IDIOMAS
+   IDIOMA
 ========================= */
 
-const translations={
+let currentLanguage = "es";
 
-es:{
-hero1:"Un nuevo destino para",
-hero2:" relojes excepcionales.",
-heroText:"Una selección cuidada de relojes para quienes valoran la precisión, el diseño y la personalidad de cada pieza.",
-heroButton:"EXPLORAR COLECCIÓN"
-},
-
-en:{
-hero1:"A new destination for",
-hero2:" exceptional watches.",
-heroText:"A carefully curated selection of timepieces for those who value precision, design and the personality of every piece.",
-heroButton:"EXPLORE COLLECTION"
-}
-
-};
 
 function setLanguage(lang){
 
-document.documentElement.lang=lang;
+currentLanguage = lang;
 
-document.getElementById("hero1").textContent=
-translations[lang].hero1;
+document.documentElement.lang = lang;
 
-document.getElementById("hero2").textContent=
-translations[lang].hero2;
+const t = translations[lang];
 
-document.getElementById("heroText").textContent=
-translations[lang].heroText;
 
-document.getElementById("heroButton").textContent=
-translations[lang].heroButton;
+/* HERO */
+
+document.getElementById("hero1").textContent = t.hero1;
+document.getElementById("hero2").textContent = t.hero2;
+document.getElementById("heroText").textContent = t.heroText;
+document.getElementById("heroButton").textContent = t.heroButton;
+
+
+/* BOTONES ES / EN */
 
 document.getElementById("esBtn").classList.toggle(
-"active",lang==="es"
+"active",
+lang === "es"
 );
 
 document.getElementById("enBtn").classList.toggle(
-"active",lang==="en"
+"active",
+lang === "en"
 );
 
+
+/* MENÚ */
+
+const nav = document.querySelectorAll("#panel a");
+
+if(nav.length >= 5){
+
+nav[0].textContent = t.navCollection;
+nav[1].textContent = t.navBrands;
+nav[2].textContent = t.navAvailable;
+nav[3].textContent = t.navAbout;
+nav[4].textContent = t.navContact;
+
 }
+
+
+/* COLECCIÓN */
+
+const collection = document.querySelector("#collection");
+
+if(collection){
+
+collection.querySelector(".eyebrow").textContent =
+t.collectionEyebrow;
+
+collection.querySelector(".section-title").textContent =
+t.collectionTitle;
+
+collection.querySelector(".section-text").textContent =
+t.collectionText;
+
+collection.querySelector(".collection-button span:last-child").textContent =
+t.collectionButton;
+
+}
+
+
+/* MARCAS */
+
+const brands = document.querySelector("#brands");
+
+if(brands){
+
+brands.querySelector(".eyebrow").textContent =
+t.brandsEyebrow;
+
+brands.querySelector(".section-title").textContent =
+t.brandsTitle;
+
+brands.querySelector(".section-text").textContent =
+t.brandsText;
+
+}
+
+
+/* DISPONIBILIDAD */
+
+const available = document.querySelector("#available");
+
+if(available){
+
+available.querySelector(".eyebrow").textContent =
+t.availableEyebrow;
+
+available.querySelector(".section-title").textContent =
+t.availableTitle;
+
+available.querySelector(".section-text").textContent =
+t.availableText;
+
+available.querySelector(".btn").textContent =
+t.availableButton;
+
+}
+
+
+/* FILOSOFÍA */
+
+const about = document.querySelector("#about");
+
+if(about){
+
+about.querySelector(".eyebrow").textContent =
+t.aboutEyebrow;
+
+about.querySelector("h2").textContent =
+t.aboutTitle;
+
+about.querySelector("p").textContent =
+t.aboutText;
+
+}
+
+
+/* CONTACTO */
+
+const contact = document.querySelector("#contact");
+
+if(contact){
+
+contact.querySelector(".eyebrow").textContent =
+t.contactEyebrow;
+
+contact.querySelector("h2").textContent =
+t.contactTitle;
+
+contact.querySelector("p").textContent =
+t.contactText;
+
+contact.querySelector(".btn").textContent =
+t.contactButton;
+
+}
+
+
+/* FOOTER */
+
+const footer = document.querySelector("footer");
+
+if(footer){
+
+footer.textContent = t.footer;
+
+}
+
+
+/* SI HAY UNA MARCA ABIERTA,
+   LA VOLVEMOS A GENERAR EN EL IDIOMA NUEVO */
+
+const active = document.querySelector(".brand-products");
+
+if(active){
+
+const title = active.querySelector("h3");
+
+if(title){
+
+showBrand(title.textContent.trim());
+
+}
+
+}
+
+}
+
 
 /* =========================
    MENÚ
@@ -1173,6 +1394,7 @@ document
 
 }
 
+
 function closeMenu(){
 
 document
@@ -1181,23 +1403,30 @@ document
 
 }
 
+
 document
 .querySelectorAll("#panel a")
-.forEach(a=>a.addEventListener("click",closeMenu));
+.forEach(link =>
+link.addEventListener("click",closeMenu)
+);
+
 
 /* =========================
-   MARCAS
+   MOSTRAR MARCA
 ========================= */
 
 function showBrand(brand){
 
-const area=document.getElementById("productsArea");
+const area =
+document.getElementById("productsArea");
 
-const list=products.filter(
-p=>p.brand===brand
-);
+const list =
+products.filter(p => p.brand === brand);
 
-area.innerHTML=`
+const t =
+translations[currentLanguage];
+
+area.innerHTML = `
 
 <div class="brand-products" id="activeProducts">
 
@@ -1208,7 +1437,9 @@ area.innerHTML=`
 <button
 class="close-brand"
 onclick="closeBrands()">
-VOLVER A MARCAS
+
+${t.backButton}
+
 </button>
 
 </div>
@@ -1220,9 +1451,10 @@ ${list.map(productCard).join("")}
 </div>
 
 </div>
+
 `;
 
-setTimeout(()=>{
+setTimeout(() => {
 
 document
 .getElementById("activeProducts")
@@ -1235,11 +1467,15 @@ block:"start"
 
 }
 
+
 /* =========================
-   TARJETA DE RELOJ
+   TARJETAS
 ========================= */
 
 function productCard(p){
+
+const t =
+translations[currentLanguage];
 
 return `
 
@@ -1268,16 +1504,17 @@ ${p.name}
 </div>
 
 <div class="product-price">
-Desde ${p.price} €
+${currentLanguage === "es" ? "Desde" : "From"} ${p.price} €
 </div>
 
 <div class="product-hint">
-Tocar para ver detalles
+${t.productHint}
 </div>
 
 </div>
 
 </div>
+
 
 <div class="product-face product-back">
 
@@ -1290,22 +1527,19 @@ ${p.name}
 </h4>
 
 <p>
-Disponible bajo consulta.
-Para confirmar disponibilidad,
-conservación y condiciones de la pieza,
-contactá con ZAVIREM.
+${t.productBackText}
 </p>
 
 <div class="price">
-Desde ${p.price} €
+${currentLanguage === "es" ? "Desde" : "From"} ${p.price} €
 </div>
 
 <a
 class="btn"
 onclick="event.stopPropagation()"
-href="mailto:zavirem.contact@vmail.com?subject=Consulta%20${encodeURIComponent(p.brand+" "+p.name)}">
+href="mailto:zavirem.contact@vmail.com?subject=${encodeURIComponent(p.brand+" "+p.name)}">
 
-CONSULTAR PIEZA
+${t.productButton}
 
 </a>
 
@@ -1319,9 +1553,16 @@ CONSULTAR PIEZA
 
 }
 
+
+/* =========================
+   CERRAR MARCA
+========================= */
+
 function closeBrands(){
 
-document.getElementById("productsArea").innerHTML="";
+document
+.getElementById("productsArea")
+.innerHTML = "";
 
 document
 .getElementById("brands")
@@ -1331,6 +1572,11 @@ block:"start"
 });
 
 }
+
+
+/* =========================
+   INICIO
+========================= */
 
 setLanguage("es");
 
