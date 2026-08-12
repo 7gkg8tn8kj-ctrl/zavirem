@@ -618,9 +618,16 @@ gap:18px;
 ===================================================== */
 
 .product{
-height:530px;
-perspective:1200px;
+height:540px;
+perspective:1400px;
 cursor:pointer;
+position:relative;
+-webkit-tap-highlight-color:transparent;
+}
+
+.product:focus-visible{
+outline:1px solid var(--gold);
+outline-offset:4px;
 }
 
 .product-inner{
@@ -659,7 +666,7 @@ justify-content:center;
 }
 
 .product-photo{
-height:75%;
+height:68%;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -668,8 +675,8 @@ overflow:hidden;
 background:
 radial-gradient(
 circle at 50% 45%,
-rgba(201,166,95,.12),
-transparent 55%
+rgba(201,166,95,.13),
+transparent 58%
 );
 }
 
@@ -679,7 +686,18 @@ height:100%;
 display:block;
 object-fit:contain;
 object-position:center;
-padding:10px;
+padding:18px;
+transition:
+transform .45s cubic-bezier(.2,.7,.2,1),
+filter .45s ease;
+}
+
+.product:hover .product-photo img{
+transform:scale(1.035);
+}
+
+.product.flipped .product-photo img{
+transform:scale(1);
 }
 
 .watch-placeholder{
@@ -718,8 +736,40 @@ transform:translate(-50%,-100%) rotate(310deg);
 }
 
 .product-info{
-padding:24px 28px;
+height:32%;
+padding:22px 26px;
 border-top:1px solid #292929;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.product-brand{
+color:var(--gold);
+font-size:9px;
+letter-spacing:.25em;
+text-transform:uppercase;
+margin-bottom:8px;
+}
+
+.product-name{
+font-family:Georgia,"Times New Roman",serif;
+font-size:27px;
+line-height:1.12;
+margin-bottom:10px;
+}
+
+.product-price{
+font-size:15px;
+color:#ddd;
+}
+
+.product-hint{
+margin-top:10px;
+font-size:8px;
+letter-spacing:.18em;
+color:#777;
+text-transform:uppercase;
 }
 
 .product-brand{
@@ -890,7 +940,7 @@ grid-template-columns:1fr;
 }
 
 .product{
-height:560px;
+height:550px;
 }
 
 .brand-products-title{
