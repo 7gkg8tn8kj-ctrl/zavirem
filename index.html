@@ -6,6 +6,245 @@
 <meta name="description" content="ZAVIREM — Authentic Timepieces · Spain">
 <title>ZAVIREM | Authentic Timepieces</title>
 
+/* =====================================================
+   FONDO ZAVIREM — RELOJES GRANDES NEGRO / DORADO
+===================================================== */
+
+.zavirem-background{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+    background:#050505;
+}
+
+/* Oscurece el fondo para que el contenido siga siendo
+   perfectamente legible */
+.zavirem-background::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(5,5,5,.18) 0%,
+            rgba(5,5,5,.58) 62%,
+            rgba(5,5,5,.88) 100%
+        );
+}
+
+/* RELOJES */
+
+.z-bg-watch{
+    position:absolute;
+
+    width:560px;
+    height:560px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #242019 0%,
+            #11100e 42%,
+            #080808 67%,
+            #050505 72%
+        );
+
+    border:4px solid rgba(201,166,95,.28);
+
+    box-shadow:
+        0 0 80px rgba(201,166,95,.13),
+        inset 0 0 70px rgba(0,0,0,.85);
+
+    filter:blur(9px);
+
+    opacity:.38;
+}
+
+/* Bisel interior */
+
+.z-bg-watch::before{
+    content:"";
+
+    position:absolute;
+
+    inset:32px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(201,166,95,.24);
+
+    box-shadow:
+        inset 0 0 35px rgba(201,166,95,.08);
+}
+
+/* Agujas */
+
+.z-bg-watch::after{
+    content:"";
+
+    position:absolute;
+
+    width:5px;
+    height:185px;
+
+    left:50%;
+    top:50%;
+
+    transform-origin:bottom center;
+
+    transform:
+        translate(-50%,-100%)
+        rotate(38deg);
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(201,166,95,.05),
+            rgba(201,166,95,.75)
+        );
+
+    border-radius:10px;
+
+    box-shadow:
+        0 0 15px rgba(201,166,95,.15);
+}
+
+
+/* RELOJ IZQUIERDO */
+
+.z-watch-left{
+    left:-270px;
+    top:8%;
+
+    transform:rotate(-17deg) scale(1.18);
+
+    opacity:.34;
+}
+
+
+/* RELOJ DERECHO */
+
+.z-watch-right{
+    right:-285px;
+    top:35%;
+
+    transform:rotate(18deg) scale(.98);
+
+    opacity:.29;
+}
+
+
+/* RELOJ INFERIOR */
+
+.z-watch-bottom{
+    left:25%;
+    bottom:-410px;
+
+    transform:rotate(-8deg) scale(1.20);
+
+    opacity:.22;
+}
+
+
+/* CONTENIDO SIEMPRE ENCIMA */
+
+body > header,
+body > main,
+body > footer{
+    position:relative;
+    z-index:2;
+}
+
+
+/* ANIMACIÓN MUY SUAVE */
+
+@keyframes zaviremWatchLeft{
+    0%,100%{
+        transform:
+            rotate(-17deg)
+            scale(1.18)
+            translate3d(0,0,0);
+    }
+
+    50%{
+        transform:
+            rotate(-14deg)
+            scale(1.18)
+            translate3d(18px,-15px,0);
+    }
+}
+
+@keyframes zaviremWatchRight{
+    0%,100%{
+        transform:
+            rotate(18deg)
+            scale(.98)
+            translate3d(0,0,0);
+    }
+
+    50%{
+        transform:
+            rotate(21deg)
+            scale(.98)
+            translate3d(-18px,18px,0);
+    }
+}
+
+.z-watch-left{
+    animation:
+        zaviremWatchLeft
+        18s
+        ease-in-out
+        infinite;
+}
+
+.z-watch-right{
+    animation:
+        zaviremWatchRight
+        22s
+        ease-in-out
+        infinite;
+}
+
+
+/* MÓVIL */
+
+@media(max-width:700px){
+
+    .z-bg-watch{
+        width:420px;
+        height:420px;
+
+        filter:blur(11px);
+    }
+
+    .z-watch-left{
+        left:-235px;
+        top:10%;
+
+        opacity:.30;
+    }
+
+    .z-watch-right{
+        right:-235px;
+        top:47%;
+
+        opacity:.25;
+    }
+
+    .z-watch-bottom{
+        left:-50px;
+        bottom:-250px;
+
+        opacity:.18;
+    }
+}
 <style>
 
 :root{
@@ -1117,7 +1356,22 @@ animation:driftTwo 22s ease-in-out infinite;
 
 <body>
 
+<body>
 
+<!-- FONDO ZAVIREM -->
+<div class="zavirem-background" aria-hidden="true">
+
+    <div class="z-bg-watch z-watch-left"></div>
+
+    <div class="z-bg-watch z-watch-right"></div>
+
+    <div class="z-bg-watch z-watch-bottom"></div>
+
+</div>
+
+<!-- TODO LO QUE YA TENÍAS -->
+<header>
+...
 <!-- =====================================================
      FONDO
 ===================================================== -->
