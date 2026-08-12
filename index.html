@@ -2214,7 +2214,11 @@ onclick="flipProduct(this)">
 
 <div class="product-photo">
 
-<div class="watch-placeholder"></div>
+<img
+  src="${product.image || ''}"
+  alt="${product.name}"
+  class="watch-image"
+>
 
 </div>
 
