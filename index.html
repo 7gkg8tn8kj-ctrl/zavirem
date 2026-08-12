@@ -3,665 +3,882 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ZAVIREM — Selección de relojes">
-<title>ZAVIREM | Timepieces</title>
+<meta name="description" content="ZAVIREM — Authentic Timepieces · Spain">
+<title>ZAVIREM | Authentic Timepieces</title>
 
 <style>
 :root{
-  --black:#070707;
-  --panel:#101010;
-  --panel2:#151515;
-  --cream:#f3efe7;
-  --gold:#c9a65f;
-  --gold2:#9f7c3e;
-  --muted:#999;
-  --line:#292929;
+--black:#060606;
+--panel:#0d0d0d;
+--cream:#f4f0e8;
+--gold:#c9a65f;
+--gold2:#8f6c32;
+--muted:#9b9b9b;
+--line:#292929;
 }
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth
 }
 
 body{
-  background:var(--black);
-  color:var(--cream);
-  font-family:Arial,Helvetica,sans-serif;
-  line-height:1.6;
-  overflow-x:hidden;
-}
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-2;
-  background:
-    radial-gradient(circle at 15% 20%,rgba(201,166,95,.06),transparent 25%),
-    radial-gradient(circle at 85% 55%,rgba(201,166,95,.045),transparent 30%),
-    radial-gradient(circle at 40% 90%,rgba(255,255,255,.025),transparent 25%);
-}
-
-/* Sutil textura de fondo */
-body:after{
-  content:"";
-  position:fixed;
-  width:520px;
-  height:520px;
-  right:-220px;
-  top:35%;
-  border:1px solid rgba(201,166,95,.035);
-  border-radius:50%;
-  box-shadow:
-    0 0 0 80px rgba(201,166,95,.012),
-    0 0 0 160px rgba(201,166,95,.008);
-  filter:blur(2px);
-  pointer-events:none;
-  z-index:-1;
+background:
+radial-gradient(circle at 50% 10%,#17130d 0,#080808 35%,#050505 100%);
+color:var(--cream);
+font-family:Arial,Helvetica,sans-serif;
+line-height:1.6;
+overflow-x:hidden;
+position:relative;
 }
 
 a{
-  color:inherit;
-  text-decoration:none;
+color:inherit;
+text-decoration:none
 }
 
 button{
-  font-family:inherit;
+font-family:inherit
 }
 
 .wrap{
-  width:min(1160px,calc(100% - 42px));
-  margin:auto;
+width:min(1120px,calc(100% - 40px));
+margin:auto
 }
 
-/* HEADER */
+/* =========================================================
+   FONDO DINÁMICO DE RELOJES
+   ========================================================= */
+
+.watch-bg{
+position:fixed;
+inset:0;
+z-index:-2;
+pointer-events:none;
+overflow:hidden;
+}
+
+.watch{
+position:absolute;
+width:560px;
+height:560px;
+border-radius:50%;
+opacity:.13;
+filter:blur(5px);
+background:
+radial-gradient(circle at center,
+#080808 0 34%,
+#b28a43 35% 36%,
+#17130d 37% 48%,
+#c9a65f 49% 51%,
+#080808 52% 61%,
+#8e6a31 62% 64%,
+#070707 65% 100%);
+box-shadow:
+0 0 100px rgba(201,166,95,.12),
+inset 0 0 60px rgba(201,166,95,.12);
+}
+
+.watch::before{
+content:"";
+position:absolute;
+inset:70px;
+border-radius:50%;
+border:2px solid rgba(201,166,95,.5);
+box-shadow:
+inset 0 0 30px rgba(201,166,95,.15);
+}
+
+.watch::after{
+content:"";
+position:absolute;
+width:8px;
+height:8px;
+border-radius:50%;
+background:#c9a65f;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+box-shadow:
+0 -170px 0 rgba(201,166,95,.55),
+0 170px 0 rgba(201,166,95,.55),
+170px 0 0 rgba(201,166,95,.55),
+-170px 0 0 rgba(201,166,95,.55),
+120px 120px 0 rgba(201,166,95,.4),
+-120px -120px 0 rgba(201,166,95,.4),
+120px -120px 0 rgba(201,166,95,.4),
+-120px 120px 0 rgba(201,166,95,.4);
+}
+
+.watch-hand{
+position:absolute;
+width:4px;
+height:190px;
+background:linear-gradient(to top,transparent,#d5b56f);
+left:50%;
+top:50%;
+transform-origin:bottom center;
+}
+
+.watch-hand.one{
+transform:translate(-50%,-100%) rotate(38deg)
+}
+
+.watch-hand.two{
+height:145px;
+transform:translate(-50%,-100%) rotate(-65deg)
+}
+
+.watch-1{
+left:-250px;
+top:80px;
+transform:rotate(-18deg)
+}
+
+.watch-2{
+right:-260px;
+top:500px;
+transform:rotate(15deg)
+}
+
+.watch-3{
+left:-240px;
+top:1250px;
+transform:rotate(20deg);
+opacity:.09
+}
+
+.watch-4{
+right:-250px;
+top:1800px;
+transform:rotate(-14deg);
+opacity:.09
+}
+
+.watch-5{
+left:-260px;
+top:2450px;
+transform:rotate(12deg);
+opacity:.08
+}
+
+.watch-6{
+right:-250px;
+top:3100px;
+transform:rotate(-20deg);
+opacity:.08
+}
+
+body::after{
+content:"";
+position:fixed;
+inset:0;
+z-index:-1;
+pointer-events:none;
+background:
+linear-gradient(
+90deg,
+rgba(5,5,5,.42),
+rgba(5,5,5,.08) 45%,
+rgba(5,5,5,.42)
+);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(7,7,7,.93);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(6,6,6,.88);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--line)
 }
 
 .nav{
-  min-height:74px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px
 }
 
 .logo{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:20px;
-  letter-spacing:.38em;
-  color:var(--gold);
+font-family:Georgia,"Times New Roman",serif;
+font-size:20px;
+letter-spacing:.38em;
+color:var(--gold);
+padding-left:.38em
 }
 
 .lang{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  font-size:11px;
-  letter-spacing:.18em;
+display:flex;
+align-items:center;
+gap:9px;
+font-size:11px;
+letter-spacing:.18em
 }
 
 .lang button{
-  background:none;
-  border:0;
-  color:#777;
-  cursor:pointer;
-  padding:5px;
-  font-size:11px;
-  letter-spacing:.15em;
+background:none;
+border:0;
+color:#777;
+cursor:pointer;
+font-size:11px;
+letter-spacing:.18em;
+padding:4px
 }
 
-.lang button.active,
-.lang button:hover{
-  color:var(--gold);
+.lang button.active{
+color:var(--gold)
 }
 
 .menu{
-  margin-left:auto;
+display:flex;
+align-items:center
 }
 
 .menu-toggle{
-  background:none;
-  border:1px solid #444;
-  color:var(--cream);
-  width:44px;
-  height:40px;
-  font-size:21px;
-  cursor:pointer;
+background:none;
+border:1px solid #414141;
+color:var(--cream);
+font-size:21px;
+width:44px;
+height:40px;
+cursor:pointer
 }
 
 .panel{
-  display:none;
-  border-top:1px solid var(--line);
-  background:#0a0a0a;
+display:none;
+border-top:1px solid var(--line);
+background:rgba(9,9,9,.98);
 }
 
 .panel.open{
-  display:block;
+display:block
 }
 
 .panel a{
-  display:block;
-  padding:17px 21px;
-  border-bottom:1px solid var(--line);
-  text-transform:uppercase;
-  letter-spacing:.16em;
-  font-size:10px;
+display:block;
+padding:18px 20px;
+border-bottom:1px solid var(--line);
+text-transform:uppercase;
+letter-spacing:.16em;
+font-size:10px;
+color:#ddd
 }
 
 .panel a:hover{
-  color:var(--gold);
-}
-
-/* HERO */
-
-.hero{
-  min-height:calc(100vh - 74px);
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-  padding:100px 0;
-  background:
-    radial-gradient(circle at 72% 38%,#282118 0,#15130f 17%,#090909 52%,#070707 100%);
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:620px;
-  height:620px;
-  right:-280px;
-  top:50%;
-  transform:translateY(-50%);
-  border:1px solid rgba(201,166,95,.06);
-  border-radius:50%;
-  box-shadow:
-    0 0 0 55px rgba(201,166,95,.018),
-    0 0 0 110px rgba(201,166,95,.012),
-    0 0 0 165px rgba(201,166,95,.008);
-  filter:blur(1px);
-}
-
-.hero-inner{
-  max-width:900px;
-  position:relative;
-  z-index:2;
-}
-
-.eyebrow{
-  color:var(--gold);
-  font-size:10px;
-  letter-spacing:.34em;
-  text-transform:uppercase;
-  margin-bottom:20px;
-}
-
-h1,h2,h3{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:400;
-}
-
-h1{
-  font-size:clamp(54px,9vw,108px);
-  line-height:.94;
-  margin-bottom:32px;
-}
-
-.gold{
-  color:var(--gold);
-}
-
-.hero p{
-  max-width:690px;
-  color:#999;
-  font-size:16px;
-  margin-bottom:32px;
-}
-
-.btn{
-  display:inline-block;
-  border:1px solid var(--gold);
-  padding:15px 25px;
-  color:var(--gold);
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  background:transparent;
-  cursor:pointer;
-  transition:.25s ease;
-}
-
-.btn:hover{
-  background:var(--gold);
-  color:#080808;
-}
-
-/* SECTIONS */
-
-section{
-  padding:105px 0;
-  border-top:1px solid var(--line);
-  position:relative;
-}
-
-.section-title{
-  font-size:clamp(44px,7vw,68px);
-  line-height:1;
-  margin-bottom:17px;
-}
-
-.section-text{
-  color:#999;
-  max-width:690px;
-  margin-bottom:42px;
-}
-
-/* COLLECTION INTRO */
-
-.collection-intro{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:30px;
-}
-
-/* BRAND BUTTONS */
-
-.brand-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-
-.brand-button{
-  min-height:150px;
-  border:1px solid var(--line);
-  background:
-    linear-gradient(145deg,#111,#0b0b0b);
-  color:var(--cream);
-  cursor:pointer;
-  padding:35px;
-  text-align:left;
-  transition:.3s ease;
-  position:relative;
-  overflow:hidden;
-}
-
-.brand-button:before{
-  content:"";
-  position:absolute;
-  width:170px;
-  height:170px;
-  border:1px solid rgba(201,166,95,.07);
-  border-radius:50%;
-  right:-80px;
-  bottom:-90px;
-  transition:.3s ease;
-}
-
-.brand-button:hover{
-  border-color:#725d37;
-  transform:translateY(-3px);
-}
-
-.brand-button:hover:before{
-  transform:scale(1.3);
-}
-
-.brand-number{
-  display:block;
-  color:var(--gold);
-  font-size:9px;
-  letter-spacing:.25em;
-  margin-bottom:18px;
-}
-
-.brand-name{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:28px;
-}
-
-/* PRODUCTS */
-
-.catalog{
-  display:none;
-  margin-top:75px;
-  animation:fadeIn .45s ease;
-}
-
-.catalog.open{
-  display:block;
-}
-
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(12px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.catalog-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:25px;
-  margin-bottom:30px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:22px;
-}
-
-.catalog-title{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:43px;
-}
-
-.catalog-sub{
-  color:#777;
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.product{
-  border:1px solid var(--line);
-  background:linear-gradient(145deg,#131313,#0c0c0c);
-  overflow:hidden;
-  transition:.3s ease;
-}
-
-.product:hover{
-  border-color:#645333;
-  transform:translateY(-3px);
-}
-
-.product-image{
-  height:280px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at center,rgba(201,166,95,.13),transparent 38%),
-    linear-gradient(145deg,#171717,#090909);
-}
-
-.product-image:before{
-  content:"";
-  width:150px;
-  height:150px;
-  border:2px solid rgba(201,166,95,.17);
-  border-radius:50%;
-  box-shadow:
-    0 0 0 12px rgba(255,255,255,.015),
-    0 0 0 30px rgba(255,255,255,.01);
-  filter:blur(.4px);
-}
-
-.product-image:after{
-  content:"Z";
-  position:absolute;
-  color:rgba(201,166,95,.45);
-  font-family:Georgia,serif;
-  font-size:26px;
-}
-
-.product-info{
-  padding:25px;
-}
-
-.product-brand{
-  color:var(--gold);
-  font-size:9px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  margin-bottom:9px;
-}
-
-.product-name{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:25px;
-  line-height:1.15;
-  margin-bottom:17px;
-}
-
-.product-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-}
-
-.price{
-  font-size:16px;
-  color:#ddd;
-}
-
-.consult{
-  color:var(--gold);
-  font-size:9px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  border:1px solid #4d4028;
-  padding:9px 11px;
-  background:none;
-  cursor:pointer;
-}
-
-.consult:hover{
-  background:var(--gold);
-  color:#080808;
-}
-
-/* PHILOSOPHY */
-
-.philosophy{
-  text-align:center;
-  background:
-    radial-gradient(circle at center,rgba(201,166,95,.055),transparent 45%);
-}
-
-.philosophy h2{
-  font-size:clamp(43px,7vw,72px);
-  margin-bottom:28px;
-}
-
-.philosophy p{
-  max-width:690px;
-  margin:auto;
-  color:#999;
-}
-
-/* CONTACT */
-
-.contact{
-  text-align:center;
-}
-
-.contact h2{
-  font-size:clamp(43px,7vw,72px);
-  line-height:1;
-  max-width:760px;
-  margin:0 auto 25px;
-}
-
-.contact p{
-  color:#999;
-  margin-bottom:25px;
-}
-
-.email{
-  color:var(--gold);
-  font-size:15px;
-}
-
-/* FOOTER */
-
-footer{
-  border-top:1px solid var(--line);
-  padding:28px 20px;
-  color:#666;
-  font-size:9px;
-  letter-spacing:.15em;
-  text-align:center;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  .wrap{
-    width:min(100% - 30px,1160px);
-  }
-
-  .nav{
-    min-height:62px;
-  }
-
-  .logo{
-    font-size:15px;
-    letter-spacing:.3em;
-  }
-
-  .hero{
-    min-height:calc(100vh - 62px);
-    padding:80px 0;
-  }
-
-  h1{
-    font-size:clamp(49px,14vw,73px);
-  }
-
-  .hero p{
-    font-size:13px;
-  }
-
-  section{
-    padding:75px 0;
-  }
-
-  .collection-intro{
-    display:block;
-  }
-
-  .brand-grid{
-    grid-template-columns:1fr;
-  }
-
-  .brand-button{
-    min-height:125px;
-    padding:27px;
-  }
-
-  .brand-name{
-    font-size:25px;
-  }
-
-  .catalog{
-    margin-top:55px;
-  }
-
-  .catalog-head{
-    display:block;
-  }
-
-  .catalog-title{
-    font-size:38px;
-    margin-bottom:10px;
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .product-image{
-    height:300px;
-  }
+color:var(--gold)
 }
 
 @media(min-width:701px){
 
-  .menu-toggle{
-    display:block;
-  }
+.menu-toggle{
+display:block
+}
 
-  .panel{
-    position:absolute;
-    right:21px;
-    top:74px;
-    width:310px;
-    box-shadow:0 25px 60px #000;
-  }
+.panel{
+position:absolute;
+right:20px;
+top:72px;
+width:300px;
+box-shadow:0 25px 60px #000
+}
 
 }
 
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+min-height:calc(100vh - 72px);
+display:flex;
+align-items:center;
+position:relative;
+padding:100px 0;
+overflow:hidden;
+background:
+radial-gradient(
+circle at 50% 45%,
+rgba(35,27,16,.35),
+transparent 58%
+);
+}
+
+.hero-inner{
+max-width:900px;
+position:relative;
+z-index:2
+}
+
+.eyebrow{
+color:var(--gold);
+font-size:10px;
+letter-spacing:.35em;
+text-transform:uppercase;
+margin-bottom:22px
+}
+
+h1,h2,h3{
+font-family:Georgia,"Times New Roman",serif;
+font-weight:400
+}
+
+h1{
+font-size:clamp(52px,9vw,105px);
+line-height:.94;
+margin-bottom:32px;
+max-width:900px
+}
+
+.gold{
+color:var(--gold)
+}
+
+.hero p{
+max-width:680px;
+color:#aaa;
+font-size:16px;
+margin-bottom:34px
+}
+
+.btn{
+display:inline-block;
+border:1px solid var(--gold);
+padding:15px 25px;
+color:var(--gold);
+font-size:10px;
+letter-spacing:.2em;
+text-transform:uppercase;
+transition:.25s ease;
+cursor:pointer;
+background:transparent
+}
+
+.btn:hover{
+background:var(--gold);
+color:#080808
+}
+
+/* =========================================================
+   SECCIONES
+   ========================================================= */
+
+section{
+padding:110px 0;
+border-top:1px solid rgba(41,41,41,.8);
+position:relative;
+overflow:hidden
+}
+
+.section-title{
+font-size:54px;
+line-height:1;
+margin-bottom:16px
+}
+
+.section-text{
+color:#aaa;
+max-width:650px;
+margin-bottom:40px
+}
+
+/* =========================================================
+   COLECCIÓN — LIMPIA Y PLEGABLE
+   ========================================================= */
+
+.collection-intro{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:30px;
+margin-bottom:45px
+}
+
+.collection-intro .section-text{
+margin-bottom:0
+}
+
+.collection-toggle{
+border:1px solid #3a3a3a;
+background:#0b0b0b;
+color:var(--cream);
+padding:14px 20px;
+font-size:10px;
+letter-spacing:.18em;
+text-transform:uppercase;
+cursor:pointer;
+white-space:nowrap;
+transition:.25s
+}
+
+.collection-toggle:hover{
+border-color:var(--gold);
+color:var(--gold)
+}
+
+.collection-toggle span{
+color:var(--gold);
+margin-left:8px
+}
+
+.collection-grid{
+display:none;
+grid-template-columns:repeat(3,1fr);
+gap:14px
+}
+
+.collection-grid.open{
+display:grid
+}
+
+.card{
+min-height:270px;
+border:1px solid #292929;
+background:
+linear-gradient(
+145deg,
+rgba(20,20,20,.88),
+rgba(8,8,8,.88)
+);
+padding:28px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+transition:.3s ease;
+cursor:pointer;
+position:relative;
+overflow:hidden
+}
+
+.card:hover{
+border-color:#765d2d;
+transform:translateY(-3px)
+}
+
+.card::after{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+right:-80px;
+bottom:-80px;
+border-radius:50%;
+background:radial-gradient(circle,#c9a65f22,transparent 70%);
+filter:blur(15px)
+}
+
+.number{
+color:var(--gold);
+font-size:10px;
+letter-spacing:.25em
+}
+
+.card h3{
+font-size:27px;
+margin-bottom:12px
+}
+
+.card p{
+font-size:12px;
+color:#999;
+max-width:300px
+}
+
+.card-arrow{
+color:var(--gold);
+font-size:20px;
+margin-top:20px
+}
+
+/* =========================================================
+   MARCAS — TAMBIÉN SON BOTONES
+   ========================================================= */
+
+.brands{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px
+}
+
+.brand{
+border:1px solid #292929;
+padding:30px 20px;
+text-align:center;
+color:#ddd;
+font-family:Georgia,serif;
+font-size:22px;
+background:rgba(8,8,8,.55);
+transition:.3s ease;
+cursor:pointer;
+position:relative
+}
+
+.brand:hover{
+border-color:var(--gold);
+color:var(--gold);
+background:rgba(201,166,95,.04);
+transform:translateY(-3px)
+}
+
+.brand small{
+display:block;
+font-family:Arial,sans-serif;
+font-size:9px;
+letter-spacing:.2em;
+color:#777;
+margin-top:10px;
+text-transform:uppercase
+}
+
+/* =========================================================
+   DISPONIBILIDAD
+   ========================================================= */
+
+.available-box{
+border:1px solid #292929;
+padding:50px;
+background:rgba(9,9,9,.62);
+position:relative;
+overflow:hidden
+}
+
+.available-box::after{
+content:"Z";
+position:absolute;
+right:40px;
+top:-70px;
+font-family:Georgia,serif;
+font-size:300px;
+color:rgba(201,166,95,.035)
+}
+
+/* =========================================================
+   FILOSOFÍA
+   ========================================================= */
+
+.philosophy{
+text-align:center;
+background:
+linear-gradient(
+90deg,
+rgba(7,7,7,.85),
+rgba(16,13,9,.45),
+rgba(7,7,7,.85)
+)
+}
+
+.philosophy h2{
+font-size:clamp(40px,7vw,70px);
+margin-bottom:28px
+}
+
+.philosophy h2 .gold{
+display:inline
+}
+
+.philosophy p{
+max-width:650px;
+margin:auto;
+color:#aaa
+}
+
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+
+.contact{
+text-align:center
+}
+
+.contact h2{
+font-size:clamp(42px,7vw,70px);
+line-height:1;
+max-width:750px;
+margin:0 auto 25px
+}
+
+.contact p{
+color:#aaa;
+margin-bottom:25px
+}
+
+.email{
+color:var(--gold);
+font-size:15px
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+border-top:1px solid var(--line);
+padding:28px 20px;
+color:#777;
+font-size:10px;
+letter-spacing:.15em;
+text-align:center
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:700px){
+
+.wrap{
+width:calc(100% - 40px)
+}
+
+.nav{
+min-height:64px
+}
+
+.logo{
+font-size:15px;
+letter-spacing:.32em
+}
+
+.hero{
+min-height:calc(100vh - 64px);
+padding:80px 0 100px
+}
+
+h1{
+font-size:clamp(48px,14vw,72px);
+line-height:.94;
+margin-bottom:28px
+}
+
+.hero p{
+font-size:14px;
+line-height:1.7
+}
+
+section{
+padding:80px 0
+}
+
+.section-title{
+font-size:44px
+}
+
+.collection-intro{
+display:block
+}
+
+.collection-intro .section-text{
+margin-bottom:25px
+}
+
+.collection-toggle{
+width:100%;
+text-align:center
+}
+
+.collection-grid{
+grid-template-columns:1fr;
+gap:12px;
+margin-top:25px
+}
+
+.card{
+min-height:230px
+}
+
+.brands{
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+.brand{
+font-size:17px;
+padding:25px 8px
+}
+
+.available-box{
+padding:30px 24px
+}
+
+.watch{
+width:400px;
+height:400px;
+opacity:.09;
+filter:blur(6px)
+}
+
+.watch-1{
+left:-250px;
+top:90px
+}
+
+.watch-2{
+right:-250px;
+top:650px
+}
+
+.watch-3{
+left:-250px;
+top:1350px
+}
+
+.watch-4{
+right:-250px;
+top:2050px
+}
+
+.watch-5{
+left:-250px;
+top:2700px
+}
+
+.watch-6{
+right:-250px;
+top:3350px
+}
+
+.watch::before{
+inset:50px
+}
+
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(min-width:701px) and (max-width:1000px){
+
+.collection-grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.brands{
+grid-template-columns:repeat(2,1fr)
+}
+
+.watch{
+width:470px;
+height:470px
+}
+
+}
+
+/* =========================================================
+   ANIMACIÓN MUY SUTIL
+   ========================================================= */
+
+@keyframes slowFloat{
+0%,100%{
+transform:translate3d(0,0,0) rotate(-12deg)
+}
+50%{
+transform:translate3d(0,-12px,0) rotate(-10deg)
+}
+}
+
+.watch-1{
+animation:slowFloat 12s ease-in-out infinite
+}
+
+.watch-3{
+animation:slowFloat 15s ease-in-out infinite reverse
+}
 </style>
 </head>
 
 <body>
 
+<!-- =======================================================
+     FONDO DE RELOJES
+     ======================================================= -->
+
+<div class="watch-bg" aria-hidden="true">
+
+<div class="watch watch-1">
+<div class="watch-hand one"></div>
+<div class="watch-hand two"></div>
+</div>
+
+<div class="watch watch-2">
+<div class="watch-hand one"></div>
+<div class="watch-hand two"></div>
+</div>
+
+<div class="watch watch-3">
+<div class="watch-hand one"></div>
+<div class="watch-hand two"></div>
+</div>
+
+<div class="watch watch-4">
+<div class="watch-hand one"></div>
+<div class="watch-hand two"></div>
+</div>
+
+<div class="watch watch-5">
+<div class="watch-hand one"></div>
+<div class="watch-hand two"></div>
+</div>
+
+<div class="watch watch-6">
+<div class="watch-hand one"></div>
+<div class="watch-hand two"></div>
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     HEADER
+     ======================================================= -->
+
 <header>
 
 <div class="wrap nav">
 
-  <div class="lang">
-    <button id="esBtn" class="active" onclick="setLanguage('es')">ES</button>
-    <span>|</span>
-    <button id="enBtn" onclick="setLanguage('en')">EN</button>
-  </div>
+<div class="lang">
+<button id="esBtn" class="active" onclick="setLanguage('es')">ES</button>
+<span>|</span>
+<button id="enBtn" onclick="setLanguage('en')">EN</button>
+</div>
 
-  <a href="#home" class="logo">ZAVIREM</a>
+<a href="#home" class="logo">ZAVIREM</a>
 
-  <div class="menu">
-    <button class="menu-toggle"
-            onclick="toggleMenu()"
-            aria-label="Menu">
-      ☰
-    </button>
-  </div>
+<div class="menu">
+<button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+</div>
 
 </div>
 
 <nav id="panel" class="panel">
 
-  <a href="#collection" data-key="navCollection">Colección</a>
-  <a href="#brands" data-key="navBrands">Marcas</a>
-  <a href="#about" data-key="navAbout">Sobre ZAVIREM</a>
-  <a href="#contact" data-key="navContact">Contacto</a>
+<a href="#collection" data-key="navCollection">Colección</a>
+<a href="#brands" data-key="navBrands">Marcas</a>
+<a href="#available" data-key="navAvailable">Disponibilidad</a>
+<a href="#about" data-key="navAbout">Sobre ZAVIREM</a>
+<a href="#contact" data-key="navContact">Contacto</a>
 
 </nav>
 
 </header>
 
 
+<!-- =======================================================
+     CONTENIDO
+     ======================================================= -->
+
 <main>
+
 
 <!-- HERO -->
 
@@ -669,221 +886,307 @@ footer{
 
 <div class="wrap hero-inner">
 
-  <div class="eyebrow" data-key="heroEyebrow">
-    TIMEPIECES · SPAIN
-  </div>
+<div class="eyebrow" data-key="eyebrow">
+TIMEPIECES · SPAIN
+</div>
 
-  <h1>
-    <span data-key="hero1">
-      Un nuevo destino para
-    </span>
-    <span class="gold" data-key="hero2">
-      relojes excepcionales.
-    </span>
-  </h1>
+<h1>
+<span data-key="hero1">Un nuevo destino para</span>
+<span class="gold" data-key="hero2"> relojes excepcionales.</span>
+</h1>
 
-  <p data-key="heroText">
-    Una selección cuidada de relojes para quienes valoran
-    la precisión, el diseño y la personalidad de cada pieza.
-  </p>
+<p data-key="heroText">
+Una selección cuidada de relojes para quienes valoran la precisión,
+el diseño y la personalidad de cada pieza.
+</p>
 
-  <a href="#brands"
-     class="btn"
-     data-key="heroButton">
-     EXPLORAR COLECCIÓN
-  </a>
+<a href="#collection" class="btn" data-key="heroButton">
+EXPLORAR COLECCIÓN
+</a>
 
 </div>
 
 </section>
 
 
-<!-- COLLECTION -->
+<!-- COLECCIÓN -->
 
 <section id="collection">
 
 <div class="wrap">
 
-  <div class="eyebrow" data-key="collectionEyebrow">
-    SELECCIÓN
-  </div>
+<div class="collection-intro">
 
-  <h2 class="section-title" data-key="collectionTitle">
-    La colección
-  </h2>
+<div>
 
-  <p class="section-text" data-key="collectionText">
-    Elegí una marca para descubrir las piezas disponibles.
-  </p>
+<div class="eyebrow" data-key="collectionEyebrow">
+SELECCIÓN
+</div>
+
+<h2 class="section-title" data-key="collectionTitle">
+La colección
+</h2>
+
+<p class="section-text" data-key="collectionText">
+Elegí una marca para descubrir las piezas disponibles.
+</p>
+
+</div>
+
+<button class="collection-toggle" onclick="toggleCollection()">
+
+<span data-key="viewCollection">
+VER COLECCIÓN
+</span>
+
+<span id="collectionArrow">+</span>
+
+</button>
+
+</div>
+
+
+<div id="collectionGrid" class="collection-grid">
+
+
+<div class="card" onclick="goToBrand('Rolex')">
+
+<div class="number">01</div>
+
+<div>
+<h3>Rolex</h3>
+
+<p data-key="rolexText">
+Selección de piezas Rolex disponibles bajo consulta.
+</p>
+
+<div class="card-arrow">→</div>
+</div>
+
+</div>
+
+
+<div class="card" onclick="goToBrand('Patek Philippe')">
+
+<div class="number">02</div>
+
+<div>
+<h3>Patek Philippe</h3>
+
+<p data-key="patekText">
+Alta relojería seleccionada bajo consulta.
+</p>
+
+<div class="card-arrow">→</div>
+</div>
+
+</div>
+
+
+<div class="card" onclick="goToBrand('Audemars Piguet')">
+
+<div class="number">03</div>
+
+<div>
+<h3>Audemars Piguet</h3>
+
+<p data-key="apText">
+Referencias seleccionadas disponibles bajo consulta.
+</p>
+
+<div class="card-arrow">→</div>
+</div>
+
+</div>
+
+
+<div class="card" onclick="goToBrand('Cartier')">
+
+<div class="number">04</div>
+
+<div>
+<h3>Cartier</h3>
+
+<p data-key="cartierText">
+Piezas seleccionadas de la maison.
+</p>
+
+<div class="card-arrow">→</div>
+</div>
+
+</div>
+
+
+<div class="card" onclick="goToBrand('Richard Mille')">
+
+<div class="number">05</div>
+
+<div>
+<h3>Richard Mille</h3>
+
+<p data-key="rmText">
+Relojería contemporánea de alta gama.
+</p>
+
+<div class="card-arrow">→</div>
+</div>
+
+</div>
+
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- BRANDS -->
+<!-- MARCAS -->
 
 <section id="brands">
 
 <div class="wrap">
 
-  <div class="eyebrow" data-key="brandsEyebrow">
-    SELECCIÓN
-  </div>
+<div class="eyebrow" data-key="brandsEyebrow">
+MARCAS
+</div>
 
-  <h2 class="section-title" data-key="brandsTitle">
-    Marcas
-  </h2>
+<h2 class="section-title" data-key="brandsTitle">
+Marcas
+</h2>
 
-  <p class="section-text" data-key="brandsText">
-    Seleccioná una casa relojera para ver los modelos disponibles.
-  </p>
-
-
-  <div class="brand-grid">
-
-    <button class="brand-button"
-            onclick="showBrand('Rolex')">
-
-      <span class="brand-number">01</span>
-      <span class="brand-name">Rolex</span>
-
-    </button>
+<p class="section-text" data-key="brandsText">
+Referencias seleccionadas de distintas casas relojeras.
+</p>
 
 
-    <button class="brand-button"
-            onclick="showBrand('Patek Philippe')">
-
-      <span class="brand-number">02</span>
-      <span class="brand-name">Patek Philippe</span>
-
-    </button>
+<div class="brands">
 
 
-    <button class="brand-button"
-            onclick="showBrand('Audemars Piguet')">
-
-      <span class="brand-number">03</span>
-      <span class="brand-name">Audemars Piguet</span>
-
-    </button>
+<div class="brand" onclick="goToBrand('Rolex')">
+Rolex
+<small>VER PIEZAS →</small>
+</div>
 
 
-    <button class="brand-button"
-            onclick="showBrand('Cartier')">
-
-      <span class="brand-number">04</span>
-      <span class="brand-name">Cartier</span>
-
-    </button>
+<div class="brand" onclick="goToBrand('Patek Philippe')">
+Patek Philippe
+<small>VER PIEZAS →</small>
+</div>
 
 
-    <button class="brand-button"
-            onclick="showBrand('RICHARD MILLE')">
-
-      <span class="brand-number">05</span>
-      <span class="brand-name">Richard Mille</span>
-
-    </button>
-
-  </div>
+<div class="brand" onclick="goToBrand('Audemars Piguet')">
+Audemars Piguet
+<small>VER PIEZAS →</small>
+</div>
 
 
-  <!-- CATALOGO DINAMICO -->
+<div class="brand" onclick="goToBrand('Cartier')">
+Cartier
+<small>VER PIEZAS →</small>
+</div>
 
-  <div id="catalog" class="catalog">
 
-    <div class="catalog-head">
+<div class="brand" onclick="goToBrand('Richard Mille')">
+Richard Mille
+<small>VER PIEZAS →</small>
+</div>
 
-      <div>
 
-        <div class="eyebrow" data-key="availableEyebrow">
-          DISPONIBILIDAD
-        </div>
-
-        <div id="catalogTitle"
-             class="catalog-title">
-          Rolex
-        </div>
-
-      </div>
-
-      <div class="catalog-sub"
-           data-key="catalogSub">
-        Selección disponible
-      </div>
-
-    </div>
-
-    <div id="products"
-         class="products">
-    </div>
-
-  </div>
+</div>
 
 </div>
 
 </section>
 
 
-<!-- PHILOSOPHY -->
+<!-- DISPONIBILIDAD -->
+
+<section id="available">
+
+<div class="wrap">
+
+<div class="available-box">
+
+<div class="eyebrow" data-key="availableEyebrow">
+DISPONIBILIDAD
+</div>
+
+<h2 class="section-title" data-key="availableTitle">
+Relojes disponibles
+</h2>
+
+<p class="section-text" data-key="availableText">
+Nuestro catálogo se actualiza según disponibilidad.
+Consultanos por el modelo o referencia que estés buscando.
+</p>
+
+<a href="#contact" class="btn" data-key="availableButton">
+CONSULTAR DISPONIBILIDAD
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FILOSOFÍA -->
 
 <section id="about" class="philosophy">
 
 <div class="wrap">
 
-  <div class="eyebrow" data-key="aboutEyebrow">
-    NUESTRA FILOSOFÍA
-  </div>
+<div class="eyebrow" data-key="aboutEyebrow">
+NUESTRA FILOSOFÍA
+</div>
 
-  <h2 data-key="aboutTitle">
-    Menos ruido. Más tiempo.
-  </h2>
+<h2>
+<span data-key="aboutTitle1">Menos ruido.</span>
+<br>
+<span class="gold" data-key="aboutTitle2">Más tiempo.</span>
+</h2>
 
-  <p data-key="aboutText">
-    ZAVIREM nace alrededor de una idea sencilla:
-    un buen reloj no necesita llamar la atención para hacerse notar.
-    Seleccionamos cada pieza buscando diseño,
-    personalidad y una experiencia de compra discreta.
-  </p>
+<p data-key="aboutText">
+ZAVIREM nace alrededor de una idea sencilla:
+un buen reloj no necesita llamar la atención para hacerse notar.
+Seleccionamos cada pieza buscando diseño, personalidad
+y una experiencia de compra discreta.
+</p>
 
 </div>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- CONTACTO -->
 
 <section id="contact" class="contact">
 
 <div class="wrap">
 
-  <div class="eyebrow" data-key="contactEyebrow">
-    CONTACTO
-  </div>
+<div class="eyebrow" data-key="contactEyebrow">
+CONTACTO
+</div>
 
-  <h2 data-key="contactTitle">
-    ¿Buscás un reloj concreto?
-  </h2>
+<h2 data-key="contactTitle">
+¿Buscás un reloj concreto?
+</h2>
 
-  <p data-key="contactText">
-    Contactá con ZAVIREM y contanos qué modelo estás buscando.
-  </p>
+<p data-key="contactText">
+Contactá con ZAVIREM y contanos qué modelo estás buscando.
+</p>
 
-  <a class="btn"
-     href="mailto:zavirem.contact@gmail.com"
-     data-key="contactButton">
-     CONTACTAR ZAVIREM
-  </a>
+<a class="btn" href="mailto:zavirem.contact@gmail.com" data-key="contactButton">
+CONTACTAR ZAVIREM
+</a>
 
-  <p style="margin-top:22px">
-
-    <a class="email"
-       href="mailto:zavirem.contact@gmail.com">
-       zavirem.contact@gmail.com
-    </a>
-
-  </p>
+<p>
+<a class="email" href="mailto:zavirem.contact@gmail.com">
+zavirem.contact@gmail.com
+</a>
+</p>
 
 </div>
 
@@ -899,275 +1202,59 @@ footer{
 
 <script>
 
-/* =========================
-   PRODUCTOS
-========================= */
-
-const products = [
-
-/* ROLEX */
-
-{
-brand:"Rolex",
-name:"Submariner Negro",
-price:180
-},
-{
-brand:"Rolex",
-name:"Submariner Hulk",
-price:180
-},
-{
-brand:"Rolex",
-name:"Submariner Pitufo",
-price:180
-},
-{
-brand:"Rolex",
-name:"Submariner Oro",
-price:180
-},
-{
-brand:"Rolex",
-name:"Submariner Oro - Blue",
-price:180
-},
-{
-brand:"Rolex",
-name:"Submariner Rose Gold",
-price:180
-},
-{
-brand:"Rolex",
-name:"GMT II - Zombie",
-price:180
-},
-{
-brand:"Rolex",
-name:"GMT II - Bluesy",
-price:180
-},
-{
-brand:"Rolex",
-name:"GMT II - Rootbeer",
-price:180
-},
-{
-brand:"Rolex",
-name:"GMT II - Batman Oyster",
-price:180
-},
-{
-brand:"Rolex",
-name:"GMT II - Pepsi Oyster",
-price:180
-},
-{
-brand:"Rolex",
-name:"GMT II - Batgirl Jubilee",
-price:180
-},
-{
-brand:"Rolex",
-name:"GMT II - Pepsi Jubilee",
-price:180
-},
-{
-brand:"Rolex",
-name:"GMT II - Bruce Wayne",
-price:180
-},
-{
-brand:"Rolex",
-name:"Daytona Negro",
-price:180
-},
-{
-brand:"Rolex",
-name:"Daytona Panda",
-price:180
-},
-{
-brand:"Rolex",
-name:"Daytona Platinum",
-price:180
-},
-{
-brand:"Rolex",
-name:"Datejust Negro",
-price:180
-},
-{
-brand:"Rolex",
-name:"Datejust Blanco",
-price:180
-},
-{
-brand:"Rolex",
-name:"Datejust Blue",
-price:180
-},
-{
-brand:"Rolex",
-name:"Datejust Verde",
-price:180
-},
-{
-brand:"Rolex",
-name:"Daydate Gold",
-price:180
-},
-{
-brand:"Rolex",
-name:"Daydate Olive",
-price:180
-},
-
-/* PATEK */
-
-{
-brand:"Patek Philippe",
-name:"Patek Negro",
-price:210
-},
-{
-brand:"Patek Philippe",
-name:"Patek Blanco",
-price:210
-},
-{
-brand:"Patek Philippe",
-name:"Patek Blue",
-price:210
-},
-{
-brand:"Patek Philippe",
-name:"Patek Chromo",
-price:210
-},
-{
-brand:"Patek Philippe",
-name:"Patek Cubitus",
-price:210
-},
-{
-brand:"Patek Philippe",
-name:"Patek Aquanaut",
-price:210
-},
-
-/* AP */
-
-{
-brand:"Audemars Piguet",
-name:"AP Blanco",
-price:210
-},
-{
-brand:"Audemars Piguet",
-name:"AP Negro",
-price:210
-},
-{
-brand:"Audemars Piguet",
-name:"AP Rose Gold",
-price:210
-},
-{
-brand:"Audemars Piguet",
-name:"AP SKELETON Oro-Negro",
-price:210
-},
-{
-brand:"Audemars Piguet",
-name:"AP SKELETON Oro-Blanco",
-price:210
-},
-{
-brand:"Audemars Piguet",
-name:"AP SKELETON Acero-Negro",
-price:210
-},
-
-/* CARTIER */
-
-{
-brand:"Cartier",
-name:"VVS - MOISANITE",
-price:330
-},
-{
-brand:"Cartier",
-name:"Santos Oro",
-price:170
-},
-{
-brand:"Cartier",
-name:"Santos Rose Gold",
-price:170
-},
-
-/* RICHARD MILLE */
-
-{
-brand:"RICHARD MILLE",
-name:"RM 35",
-price:170
-},
-{
-brand:"RICHARD MILLE",
-name:"RM 35",
-price:170
-},
-{
-brand:"RICHARD MILLE",
-name:"RM 35",
-price:170
-}
-
-];
-
-
-/* =========================
+/* =========================================================
    IDIOMAS
-========================= */
+   ========================================================= */
 
-const translations = {
+const translations={
 
 es:{
 
 navCollection:"Colección",
 navBrands:"Marcas",
+navAvailable:"Disponibilidad",
 navAbout:"Sobre ZAVIREM",
 navContact:"Contacto",
 
-heroEyebrow:"TIMEPIECES · SPAIN",
+eyebrow:"TIMEPIECES · SPAIN",
+
 hero1:"Un nuevo destino para",
 hero2:" relojes excepcionales.",
-heroText:"Una selección cuidada de relojes para quienes valoran la precisión, el diseño y la personalidad de cada pieza.",
+
+heroText:
+"Una selección cuidada de relojes para quienes valoran la precisión, el diseño y la personalidad de cada pieza.",
+
 heroButton:"EXPLORAR COLECCIÓN",
 
 collectionEyebrow:"SELECCIÓN",
 collectionTitle:"La colección",
 collectionText:"Elegí una marca para descubrir las piezas disponibles.",
+viewCollection:"VER COLECCIÓN",
 
-brandsEyebrow:"SELECCIÓN",
+rolexText:"Selección de piezas Rolex disponibles bajo consulta.",
+patekText:"Alta relojería seleccionada bajo consulta.",
+apText:"Referencias seleccionadas disponibles bajo consulta.",
+cartierText:"Piezas seleccionadas de la maison.",
+rmText:"Relojería contemporánea de alta gama.",
+
+brandsEyebrow:"MARCAS",
 brandsTitle:"Marcas",
-brandsText:"Seleccioná una casa relojera para ver los modelos disponibles.",
+brandsText:"Referencias seleccionadas de distintas casas relojeras.",
 
 availableEyebrow:"DISPONIBILIDAD",
-catalogSub:"Selección disponible",
+availableTitle:"Relojes disponibles",
+availableText:"Nuestro catálogo se actualiza según disponibilidad. Consultanos por el modelo o referencia que estés buscando.",
+availableButton:"CONSULTAR DISPONIBILIDAD",
 
 aboutEyebrow:"NUESTRA FILOSOFÍA",
-aboutTitle:"Menos ruido. Más tiempo.",
+aboutTitle1:"Menos ruido.",
+aboutTitle2:"Más tiempo.",
 aboutText:"ZAVIREM nace alrededor de una idea sencilla: un buen reloj no necesita llamar la atención para hacerse notar. Seleccionamos cada pieza buscando diseño, personalidad y una experiencia de compra discreta.",
 
 contactEyebrow:"CONTACTO",
 contactTitle:"¿Buscás un reloj concreto?",
 contactText:"Contactá con ZAVIREM y contanos qué modelo estás buscando.",
-contactButton:"CONTACTAR ZAVIREM",
-
-consult:"CONSULTAR PIEZA"
+contactButton:"CONTACTAR ZAVIREM"
 
 },
 
@@ -1175,231 +1262,151 @@ en:{
 
 navCollection:"Collection",
 navBrands:"Brands",
+navAvailable:"Availability",
 navAbout:"About ZAVIREM",
 navContact:"Contact",
 
-heroEyebrow:"TIMEPIECES · SPAIN",
+eyebrow:"TIMEPIECES · SPAIN",
+
 hero1:"A new destination for",
 hero2:" exceptional watches.",
-heroText:"A carefully selected collection of timepieces for those who appreciate precision, design and character.",
+
+heroText:
+"A carefully curated selection of timepieces for those who value precision, design and the personality of each piece.",
+
 heroButton:"EXPLORE COLLECTION",
 
 collectionEyebrow:"SELECTION",
 collectionTitle:"The collection",
 collectionText:"Choose a brand to discover the available pieces.",
+viewCollection:"VIEW COLLECTION",
 
-brandsEyebrow:"SELECTION",
+rolexText:"Selected Rolex pieces available on request.",
+patekText:"Selected high horology available on request.",
+apText:"Selected references available on request.",
+cartierText:"Selected pieces from the maison.",
+rmText:"Contemporary high-end watchmaking.",
+
+brandsEyebrow:"BRANDS",
 brandsTitle:"Brands",
-brandsText:"Select a watchmaking house to see the available models.",
+brandsText:"Selected references from distinguished watchmaking houses.",
 
 availableEyebrow:"AVAILABILITY",
-catalogSub:"Available selection",
+availableTitle:"Available Watches",
+availableText:"Our catalogue is updated according to availability. Contact us regarding the model or reference you are looking for.",
+availableButton:"CHECK AVAILABILITY",
 
 aboutEyebrow:"OUR PHILOSOPHY",
-aboutTitle:"Less noise. More time.",
-aboutText:"ZAVIREM was created around a simple idea: a good watch does not need to demand attention to make an impression. We select each piece with design, character and a discreet buying experience in mind.",
+aboutTitle1:"Less noise.",
+aboutTitle2:"More time.",
+aboutText:"ZAVIREM was created around a simple idea: a great watch does not need to demand attention to be noticed. We select each piece with design, personality and a discreet buying experience in mind.",
 
 contactEyebrow:"CONTACT",
-contactTitle:"Looking for a specific timepiece?",
-contactText:"Contact ZAVIREM and tell us which model you're looking for.",
-contactButton:"CONTACT ZAVIREM",
-
-consult:"ENQUIRE ABOUT PIECE"
+contactTitle:"Looking for a specific watch?",
+contactText:"Contact ZAVIREM and tell us which model you are looking for.",
+contactButton:"CONTACT ZAVIREM"
 
 }
 
 };
 
 
-/* =========================
-   IDIOMA
-========================= */
-
-let currentLanguage = "es";
-
 function setLanguage(lang){
 
-  currentLanguage = lang;
+document.documentElement.lang=lang;
 
-  document.documentElement.lang = lang;
+document.querySelectorAll("[data-key]").forEach(el=>{
 
-  document.querySelectorAll("[data-key]").forEach(el=>{
+const key=el.dataset.key;
 
-    const key = el.dataset.key;
+if(translations[lang][key]){
+el.textContent=translations[lang][key];
+}
 
-    if(translations[lang][key]){
-      el.textContent = translations[lang][key];
-    }
+});
 
-  });
+document.getElementById("esBtn").classList.toggle("active",lang==="es");
+document.getElementById("enBtn").classList.toggle("active",lang==="en");
 
-  document.getElementById("esBtn")
-    .classList.toggle("active",lang==="es");
-
-  document.getElementById("enBtn")
-    .classList.toggle("active",lang==="en");
-
-  renderProducts();
+closeMenu();
 
 }
 
 
-/* =========================
-   MOSTRAR MARCA
-========================= */
-
-let selectedBrand = "";
-
-function showBrand(brand){
-
-  selectedBrand = brand;
-
-  const catalog = document.getElementById("catalog");
-
-  catalog.classList.add("open");
-
-  document.getElementById("catalogTitle").textContent = brand;
-
-  renderProducts();
-
-  setTimeout(()=>{
-
-    catalog.scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-
-  },50);
-
-}
-
-
-/* =========================
-   PRODUCTOS
-========================= */
-
-function renderProducts(){
-
-  const container = document.getElementById("products");
-
-  if(!selectedBrand){
-
-    container.innerHTML = "";
-
-    return;
-
-  }
-
-  const filtered = products.filter(
-    product => product.brand === selectedBrand
-  );
-
-  const consultText =
-    translations[currentLanguage].consult;
-
-  container.innerHTML = filtered.map(product=>`
-
-    <article class="product">
-
-      <div class="product-image"
-           aria-hidden="true">
-      </div>
-
-      <div class="product-info">
-
-        <div class="product-brand">
-          ${product.brand}
-        </div>
-
-        <div class="product-name">
-          ${product.name}
-        </div>
-
-        <div class="product-bottom">
-
-          <div class="price">
-            Desde ${product.price} €
-          </div>
-
-          <button
-            class="consult"
-            onclick="contactProduct('${product.name.replace(/'/g,"\\'")}')">
-            ${consultText}
-          </button>
-
-        </div>
-
-      </div>
-
-    </article>
-
-  `).join("");
-
-}
-
-
-/* =========================
-   CONTACTAR POR RELOJ
-========================= */
-
-function contactProduct(model){
-
-  const subject =
-    encodeURIComponent(
-      "Consulta ZAVIREM — " + model
-    );
-
-  const body =
-    encodeURIComponent(
-      "Hola ZAVIREM,\n\nEstoy interesado en consultar disponibilidad y detalles del modelo:\n\n" +
-      model +
-      "\n\nGracias."
-    );
-
-  window.location.href =
-    "mailto:zavirem.contact@gmail.com?subject=" +
-    subject +
-    "&body=" +
-    body;
-
-}
-
-
-/* =========================
-   MENU
-========================= */
+/* =========================================================
+   MENÚ
+   ========================================================= */
 
 function toggleMenu(){
 
-  document
-    .getElementById("panel")
-    .classList.toggle("open");
+document
+.getElementById("panel")
+.classList.toggle("open");
 
 }
 
 function closeMenu(){
 
-  document
-    .getElementById("panel")
-    .classList.remove("open");
+document
+.getElementById("panel")
+.classList.remove("open");
 
 }
 
-document
-  .querySelectorAll("#panel a")
-  .forEach(link=>{
 
-    link.addEventListener(
-      "click",
-      closeMenu
-    );
+/* =========================================================
+   COLECCIÓN
+   ========================================================= */
 
-  });
+function toggleCollection(){
+
+const grid=document.getElementById("collectionGrid");
+const arrow=document.getElementById("collectionArrow");
+
+grid.classList.toggle("open");
+
+if(grid.classList.contains("open")){
+
+arrow.textContent="−";
+
+}else{
+
+arrow.textContent="+";
+
+}
+
+}
 
 
-/* =========================
-   INICIO
-========================= */
+/* =========================================================
+   MARCAS → CONTACTO CON REFERENCIA
+   ========================================================= */
+
+function goToBrand(brand){
+
+const message=
+"Hola ZAVIREM, estoy interesado en consultar disponibilidad de "+brand+".";
+
+window.location.href=
+"mailto:zavirem.contact@gmail.com?subject=Consulta%20ZAVIREM%20-%20"+encodeURIComponent(brand)+"&body="+encodeURIComponent(message);
+
+}
+
+
+/* =========================================================
+   CERRAR MENÚ AL TOCAR UN ENLACE
+   ========================================================= */
+
+document.querySelectorAll("#panel a").forEach(link=>{
+
+link.addEventListener("click",closeMenu);
+
+});
+
+
+/* =========================================================
+   IDIOMA INICIAL
+   ========================================================= */
 
 setLanguage("es");
 
