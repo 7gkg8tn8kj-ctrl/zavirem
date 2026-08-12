@@ -620,6 +620,7 @@ gap:18px;
 .product{
 height:540px;
 perspective:1400px;
+-webkit-perspective:1400px;
 cursor:pointer;
 position:relative;
 -webkit-tap-highlight-color:transparent;
@@ -634,28 +635,15 @@ outline-offset:4px;
 position:relative;
 width:100%;
 height:100%;
+transform-style:preserve-3d;
+-webkit-transform-style:preserve-3d;
+transition:transform .75s cubic-bezier(.2,.7,.2,1);
+-webkit-transition:-webkit-transform .75s cubic-bezier(.2,.7,.2,1);
 }
 
-.product-back{
-padding:35px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-opacity:0;
-visibility:hidden;
-pointer-events:none;
-}
-
-.product.flipped .product-face:first-child{
-opacity:0;
-visibility:hidden;
-pointer-events:none;
-}
-
-.product.flipped .product-back{
-opacity:1;
-visibility:visible;
-pointer-events:auto;
+.product.flipped .product-inner{
+transform:rotateY(180deg);
+-webkit-transform:rotateY(180deg);
 }
 
 .product-face{
@@ -669,12 +657,18 @@ linear-gradient(
 #090909
 );
 overflow:hidden;
-transition:opacity .35s ease, visibility .35s ease;
+backface-visibility:hidden;
+-webkit-backface-visibility:hidden;
+}
+
+.product-face:first-child{
+transform:rotateY(0deg);
+-webkit-transform:rotateY(0deg);
 }
 
 .product-back{
-transform:rotateY(180deg) translateZ(1px);
--webkit-transform:rotateY(180deg) translateZ(1px);
+transform:rotateY(180deg);
+-webkit-transform:rotateY(180deg);
 padding:35px;
 display:flex;
 flex-direction:column;
@@ -694,15 +688,6 @@ circle at 50% 45%,
 rgba(201,166,95,.12),
 transparent 55%
 );
-}
-
-.product-photo img{
-width:100%;
-height:100%;
-display:block;
-object-fit:contain;
-object-position:center;
-padding:18px;
 }
 
 .product-photo img{
@@ -767,34 +752,6 @@ border-top:1px solid #292929;
 display:flex;
 flex-direction:column;
 justify-content:center;
-}
-
-.product-brand{
-color:var(--gold);
-font-size:9px;
-letter-spacing:.25em;
-text-transform:uppercase;
-margin-bottom:8px;
-}
-
-.product-name{
-font-family:Georgia,"Times New Roman",serif;
-font-size:27px;
-line-height:1.12;
-margin-bottom:10px;
-}
-
-.product-price{
-font-size:15px;
-color:#ddd;
-}
-
-.product-hint{
-margin-top:10px;
-font-size:8px;
-letter-spacing:.18em;
-color:#777;
-text-transform:uppercase;
 }
 
 .product-brand{
