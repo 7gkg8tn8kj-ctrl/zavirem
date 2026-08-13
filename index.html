@@ -88,7 +88,7 @@ margin:auto;
 
 
 /* =====================================================
-   FONDO DINÁMICO — RELOJES GRANDES Y DESENFOCADOS
+   FONDO DINÁMICO
 ===================================================== */
 
 .background-watches{
@@ -620,7 +620,6 @@ gap:18px;
 .product{
 height:540px;
 perspective:1400px;
--webkit-perspective:1400px;
 cursor:pointer;
 position:relative;
 -webkit-tap-highlight-color:transparent;
@@ -635,15 +634,28 @@ outline-offset:4px;
 position:relative;
 width:100%;
 height:100%;
-transform-style:preserve-3d;
--webkit-transform-style:preserve-3d;
-transition:transform .75s cubic-bezier(.2,.7,.2,1);
--webkit-transition:-webkit-transform .75s cubic-bezier(.2,.7,.2,1);
 }
 
-.product.flipped .product-inner{
-transform:rotateY(180deg);
--webkit-transform:rotateY(180deg);
+.product-back{
+padding:35px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+
+.product.flipped .product-face:first-child{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+
+.product.flipped .product-back{
+opacity:1;
+visibility:visible;
+pointer-events:auto;
 }
 
 .product-face{
@@ -657,18 +669,12 @@ linear-gradient(
 #090909
 );
 overflow:hidden;
-backface-visibility:hidden;
--webkit-backface-visibility:hidden;
-}
-
-.product-face:first-child{
-transform:rotateY(0deg);
--webkit-transform:rotateY(0deg);
+transition:opacity .35s ease, visibility .35s ease;
 }
 
 .product-back{
-transform:rotateY(180deg);
--webkit-transform:rotateY(180deg);
+transform:rotateY(180deg) translateZ(1px);
+-webkit-transform:rotateY(180deg) translateZ(1px);
 padding:35px;
 display:flex;
 flex-direction:column;
@@ -756,6 +762,34 @@ justify-content:center;
 
 .product-brand{
 color:var(--gold);
+font-size:9px;
+letter-spacing:.25em;
+text-transform:uppercase;
+margin-bottom:8px;
+}
+
+.product-name{
+font-family:Georgia,"Times New Roman",serif;
+font-size:27px;
+line-height:1.12;
+margin-bottom:10px;
+}
+
+.product-price{
+font-size:15px;
+color:#ddd;
+}
+
+.product-hint{
+margin-top:10px;
+font-size:8px;
+letter-spacing:.18em;
+color:#777;
+text-transform:uppercase;
+}
+
+.product-brand{
+color:var(--gold);
 font-size:10px;
 letter-spacing:.25em;
 text-transform:uppercase;
@@ -798,6 +832,185 @@ margin-bottom:24px;
 color:var(--gold);
 font-size:19px;
 margin-bottom:25px;
+}
+
+
+/* =====================================================
+   FORMULARIO DE CONSULTA
+===================================================== */
+
+.inquiry-overlay{
+position:fixed;
+inset:0;
+z-index:200;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:rgba(0,0,0,.78);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+}
+
+.inquiry-overlay.open{
+display:flex;
+}
+
+.inquiry-modal{
+position:relative;
+width:min(560px,100%);
+max-height:90vh;
+overflow-y:auto;
+border:1px solid var(--gold);
+background:
+linear-gradient(
+145deg,
+#151515,
+#090909
+);
+box-shadow:
+0 30px 100px rgba(0,0,0,.65);
+padding:40px;
+animation:inquiryIn .3s ease;
+}
+
+@keyframes inquiryIn{
+from{
+opacity:0;
+transform:translateY(18px) scale(.98);
+}
+to{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+}
+
+.inquiry-close{
+position:absolute;
+right:18px;
+top:16px;
+width:38px;
+height:38px;
+border:1px solid #444;
+background:transparent;
+color:#aaa;
+font-size:20px;
+line-height:1;
+cursor:pointer;
+transition:.25s;
+}
+
+.inquiry-close:hover{
+border-color:var(--gold);
+color:var(--gold);
+}
+
+.inquiry-eyebrow{
+color:var(--gold);
+font-size:9px;
+letter-spacing:.3em;
+text-transform:uppercase;
+margin-bottom:15px;
+}
+
+.inquiry-title{
+font-family:Georgia,"Times New Roman",serif;
+font-size:38px;
+line-height:1.1;
+margin-bottom:10px;
+padding-right:35px;
+}
+
+.inquiry-watch{
+color:var(--gold);
+font-size:13px;
+margin-bottom:28px;
+}
+
+.inquiry-form{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.inquiry-field{
+display:flex;
+flex-direction:column;
+gap:7px;
+}
+
+.inquiry-field label{
+font-size:9px;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:#999;
+}
+
+.inquiry-field input,
+.inquiry-field textarea{
+width:100%;
+border:1px solid #393939;
+background:#080808;
+color:var(--cream);
+padding:14px 15px;
+font-family:Arial,Helvetica,sans-serif;
+font-size:14px;
+outline:none;
+transition:.25s;
+border-radius:0;
+}
+
+.inquiry-field input:focus,
+.inquiry-field textarea:focus{
+border-color:var(--gold);
+}
+
+.inquiry-field textarea{
+min-height:125px;
+resize:vertical;
+line-height:1.5;
+}
+
+.inquiry-submit{
+width:100%;
+margin-top:5px;
+}
+
+.inquiry-status{
+display:none;
+text-align:center;
+padding:30px 5px 10px;
+}
+
+.inquiry-status.show{
+display:block;
+}
+
+.inquiry-status h3{
+font-size:32px;
+margin-bottom:15px;
+}
+
+.inquiry-status p{
+color:#999;
+font-size:14px;
+}
+
+.inquiry-success-mark{
+color:var(--gold);
+font-size:34px;
+margin-bottom:12px;
+}
+
+.inquiry-error{
+display:none;
+color:#c98f8f;
+font-size:12px;
+margin-top:4px;
+}
+
+.inquiry-error.show{
+display:block;
 }
 
 
@@ -958,6 +1171,14 @@ left:-280px;
 right:-100px;
 }
 
+.inquiry-modal{
+padding:32px 24px;
+}
+
+.inquiry-title{
+font-size:32px;
+}
+
 }
 
 
@@ -1016,6 +1237,19 @@ font-size:25px;
 
 .product-back h4{
 font-size:31px;
+}
+
+.inquiry-modal{
+padding:30px 20px;
+}
+
+.inquiry-title{
+font-size:29px;
+}
+
+.inquiry-field input,
+.inquiry-field textarea{
+font-size:16px;
 }
 
 }
@@ -1519,25 +1753,23 @@ Contactá con ZAVIREM y contanos qué modelo estás buscando.
 </p>
 
 
-<a
+<button
 class="btn"
 id="contactButton"
-href="mailto:zavirem.contact@vmail.com">
+type="button"
+onclick="openGeneralInquiry(event)">
 
 CONTACTAR ZAVIREM
 
-</a>
+</button>
 
 
 <p>
 
-<a
-class="email"
-href="mailto:zavirem.contact@vmail.com">
-
+<span
+class="email">
 zavirem.contact@vmail.com
-
-</a>
+</span>
 
 </p>
 
@@ -1553,6 +1785,184 @@ zavirem.contact@vmail.com
 © 2026 ZAVIREM · AUTHENTIC TIMEPIECES · SPAIN
 
 </footer>
+
+
+<!-- =====================================================
+     MODAL DE CONSULTA
+===================================================== -->
+
+<div
+id="inquiryOverlay"
+class="inquiry-overlay"
+onclick="closeInquiryFromOverlay(event)">
+
+<div
+class="inquiry-modal"
+role="dialog"
+aria-modal="true"
+aria-labelledby="inquiryTitle">
+
+<button
+type="button"
+class="inquiry-close"
+onclick="closeInquiry(event)"
+aria-label="Cerrar">
+×
+</button>
+
+
+<div id="inquiryContent">
+
+<div class="inquiry-eyebrow">
+ZAVIREM · CONSULTA PRIVADA
+</div>
+
+
+<h2
+class="inquiry-title"
+id="inquiryTitle">
+Consultar pieza
+</h2>
+
+
+<div
+class="inquiry-watch"
+id="inquiryWatch">
+</div>
+
+
+<form
+id="inquiryForm"
+class="inquiry-form">
+
+<input
+type="hidden"
+name="watch"
+id="inquiryWatchInput">
+
+<input
+type="hidden"
+name="_subject"
+id="inquirySubject">
+
+
+<div class="inquiry-field">
+
+<label for="inquiryName">
+Nombre
+</label>
+
+<input
+type="text"
+id="inquiryName"
+name="name"
+autocomplete="name"
+placeholder="Tu nombre"
+required>
+
+</div>
+
+
+<div class="inquiry-field">
+
+<label for="inquiryPhone">
+Teléfono
+</label>
+
+<input
+type="tel"
+id="inquiryPhone"
+name="phone"
+autocomplete="tel"
+placeholder="+34 600 000 000"
+required>
+
+</div>
+
+
+<div class="inquiry-field">
+
+<label for="inquiryEmail">
+Correo electrónico
+</label>
+
+<input
+type="email"
+id="inquiryEmail"
+name="email"
+autocomplete="email"
+placeholder="tu@email.com"
+required>
+
+</div>
+
+
+<div class="inquiry-field">
+
+<label for="inquiryMessage">
+Mensaje
+</label>
+
+<textarea
+id="inquiryMessage"
+name="message"
+required></textarea>
+
+</div>
+
+
+<div
+id="inquiryError"
+class="inquiry-error">
+No se pudo enviar la solicitud. Revisá los datos e intentá nuevamente.
+</div>
+
+
+<button
+type="submit"
+class="btn inquiry-submit"
+id="inquirySubmit">
+
+ENVIAR SOLICITUD
+
+</button>
+
+</form>
+
+</div>
+
+
+<div
+id="inquirySuccess"
+class="inquiry-status">
+
+<div class="inquiry-success-mark">
+✓
+</div>
+
+<h3>
+Solicitud enviada
+</h3>
+
+<p>
+Recibimos tu consulta correctamente.<br>
+Nos pondremos en contacto contigo próximamente.
+</p>
+
+<br>
+
+<button
+type="button"
+class="btn"
+onclick="closeInquiry(event)">
+CERRAR
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 
 <script>
@@ -2358,16 +2768,14 @@ ${t.from} ${product.price}
 </div>
 
 
-<a
+<button
+type="button"
 class="btn"
-href="mailto:zavirem.contact@vmail.com?subject=${encodeURIComponent(
-"ZAVIREM — " + product.brand + " " + product.name
-)}"
-onclick="event.stopPropagation()">
+onclick="openInquiry(event, '${product.brand.replace(/'/g,"\\'")}', '${product.name.replace(/'/g,"\\'")}', '${product.price}')">
 
 ${t.productButton}
 
-</a>
+</button>
 
 </div>
 
@@ -2390,6 +2798,259 @@ function flipProduct(element){
 element.classList.toggle("flipped");
 
 }
+
+
+/* =====================================================
+   FORMULARIO DE CONSULTA
+===================================================== */
+
+function openInquiry(event,brand,name,price){
+
+if(event){
+event.stopPropagation();
+}
+
+const overlay =
+document.getElementById("inquiryOverlay");
+
+const form =
+document.getElementById("inquiryForm");
+
+const success =
+document.getElementById("inquirySuccess");
+
+const content =
+document.getElementById("inquiryContent");
+
+const watch =
+document.getElementById("inquiryWatch");
+
+const watchInput =
+document.getElementById("inquiryWatchInput");
+
+const subject =
+document.getElementById("inquirySubject");
+
+const message =
+document.getElementById("inquiryMessage");
+
+const error =
+document.getElementById("inquiryError");
+
+const submit =
+document.getElementById("inquirySubmit");
+
+
+content.style.display = "block";
+success.classList.remove("show");
+form.style.display = "flex";
+error.classList.remove("show");
+
+watch.textContent =
+brand + " · " + name + " · " + price;
+
+watchInput.value =
+brand + " — " + name + " — " + price;
+
+subject.value =
+"ZAVIREM — Consulta por " + brand + " " + name;
+
+message.value =
+"Estoy interesado/a en el reloj " +
+brand +
+" " +
+name +
+" (" +
+price +
+"). Me gustaría recibir más información sobre esta pieza.";
+
+submit.disabled = false;
+submit.textContent =
+currentLanguage === "es"
+? "ENVIAR SOLICITUD"
+: "SEND REQUEST";
+
+overlay.classList.add("open");
+
+document.body.style.overflow = "hidden";
+
+setTimeout(() => {
+
+document
+.getElementById("inquiryName")
+.focus();
+
+},100);
+
+}
+
+
+/* =====================================================
+   CONTACTO GENERAL
+===================================================== */
+
+function openGeneralInquiry(event){
+
+if(event){
+event.preventDefault();
+event.stopPropagation();
+}
+
+openInquiry(
+event,
+"ZAVIREM",
+"Consulta general",
+""
+);
+
+document.getElementById("inquiryWatch").textContent =
+currentLanguage === "es"
+? "Consulta general"
+: "General enquiry";
+
+document.getElementById("inquiryWatchInput").value =
+"Consulta general";
+
+document.getElementById("inquirySubject").value =
+"ZAVIREM — Consulta general";
+
+document.getElementById("inquiryMessage").value =
+currentLanguage === "es"
+? "Hola ZAVIREM, me gustaría recibir información."
+: "Hello ZAVIREM, I would like to receive more information.";
+
+}
+
+
+/* =====================================================
+   ENVIAR FORMULARIO
+===================================================== */
+
+document
+.getElementById("inquiryForm")
+.addEventListener("submit",async function(event){
+
+event.preventDefault();
+event.stopPropagation();
+
+const form = this;
+
+const submit =
+document.getElementById("inquirySubmit");
+
+const error =
+document.getElementById("inquiryError");
+
+error.classList.remove("show");
+
+submit.disabled = true;
+
+submit.textContent =
+currentLanguage === "es"
+? "ENVIANDO..."
+: "SENDING...";
+
+
+try{
+
+const response =
+await fetch(
+"https://formspree.io/f/xbgrynnj",
+{
+method:"POST",
+body:new FormData(form),
+headers:{
+"Accept":"application/json"
+}
+}
+);
+
+
+if(response.ok){
+
+form.style.display = "none";
+
+document
+.getElementById("inquirySuccess")
+.classList.add("show");
+
+}else{
+
+throw new Error("Formspree error");
+
+}
+
+}catch(error){
+
+document
+.getElementById("inquiryError")
+.classList.add("show");
+
+submit.disabled = false;
+
+submit.textContent =
+currentLanguage === "es"
+? "ENVIAR SOLICITUD"
+: "SEND REQUEST";
+
+}
+
+});
+
+
+/* =====================================================
+   CERRAR FORMULARIO
+===================================================== */
+
+function closeInquiry(event){
+
+if(event){
+event.preventDefault();
+event.stopPropagation();
+}
+
+document
+.getElementById("inquiryOverlay")
+.classList.remove("open");
+
+document.body.style.overflow = "";
+
+}
+
+
+function closeInquiryFromOverlay(event){
+
+if(event.target ===
+document.getElementById("inquiryOverlay")){
+
+closeInquiry(event);
+
+}
+
+}
+
+
+/* =====================================================
+   ESC PARA CERRAR
+===================================================== */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key === "Escape" &&
+document
+.getElementById("inquiryOverlay")
+.classList.contains("open")
+){
+
+closeInquiry(event);
+
+}
+
+}
+);
 
 
 /* =====================================================
